@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Конвертер довжин</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .input-box {
+        margin: 0 20px;
+    }
+</style>
+</head>
+<body>
+    
+<div class="container">
+    <div class="input-box">
+        <label for="inputMeters">Метри:</label><br>
+        <input type="number" id="inputMeters" oninput="convertLength('meters', this.value)">
+    </div>
+    <div class="input-box">
+        <label for="outputCentimeters">Сантиметри:</label><br>
+        <input type="number" id="outputCentimeters" oninput="convertLength('centimeters', this.value)">
+    </div>
+    <div class="input-box">
+        <label for="outputMillimeters">Міліметри:</label><br>
+        <input type="number" id="outputMillimeters" oninput="convertLength('millimeters', this.value)">
+    </div>
+    <div class="input-box">
+        <label for="outputKilometers">Кілометри:</label><br>
+        <input type="number" id="outputKilometers" oninput="convertLength('kilometers', this.value)">
+    </div>
+</div>
+
+<script>
+    function convertLength(from, value) {
+        const inputValue = parseFloat(value);
+
+        if (from === 'meters') {
+            const centimeters = inputValue * 100;
+            const millimeters = inputValue * 1000;
+            const kilometers = inputValue / 1000;
+
+            document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+            document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+            document.getElementById('outputKilometers').value = kilometers.toFixed(6); // Виводить кілометри з 6 знаками після коми
+        } else if (from === 'centimeters') {
+            const meters = inputValue / 100;
+            const millimeters = meters * 1000;
+            const kilometers = meters / 1000;
+
+            document.getElementById('inputMeters').value = meters.toFixed(2);
+            document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+            document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        } else if (from === 'millimeters') {
+            const meters = inputValue / 1000;
+            const centimeters = meters * 100;
+            const kilometers = meters / 1000;
+
+            document.getElementById('inputMeters').value = meters.toFixed(2);
+            document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+            document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        } else if (from === 'kilometers') {
+            const meters = inputValue * 1000;
+            const centimeters = meters * 100;
+            const millimeters = meters * 1000;
+
+            document.getElementById('inputMeters').value = meters.toFixed(2);
+            document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+            document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+        }
+    }
+</script>
+</body>
+</html>

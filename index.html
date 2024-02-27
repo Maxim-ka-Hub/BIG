@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><img src="bird-colorful-logo-gradient-vector_343694-1365.avif" alt="111"></div>
+            <ul class="ul_menu">
+                <li><a href="index.html" title="Алгебра">Головна</a></li>
+                <li><a href="Algebra.html" title="Алгебра">Алгебра</a></li>
+                <li><a href="Geometria.html" title="Геометрія">Геометрія</a></li>
+                <li><a href="Fizika.html" title="Фізика">Фізика</a></li>
+                <li><a href="Info.html" title="Інфо">Інфо</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <main>
+        <aside>
+            <div class="calculator">
+                <input type="text" id="display" readonly>
+                <div class="buttons">
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendOperator('+')">+</button>
+                    <br>
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('-')">-</button>
+                    <br>
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="appendOperator('*')">*</button>
+                    <br>
+                    <button onclick="appendNumber('0')">0</button>
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="calculate()">=</button>
+                    <button onclick="appendOperator('/')">/</button>
+                    <br>
+                    <button onclick="PlusMinus()">+/-</button>
+                    <button onclick="one_del_x()">🠔</button>
+                    <button onclick="x_square()">²</button>
+                    <button onclick="sqrt()">√2</button>
+                    <br>
+                    <button onclick="deleteLast()">DEL</button>
+                    
+                </div>
+            </div>
+
+
+
+            
+
+
+            <ul>
+                <li>Рівняння</li>
+            </ul>
+            <div class="widget_1">
+                <a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
+            </div>
+
+            <div class="widget_2">
+                <iframe src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&bgcolor=%23ffffff&ctz=UTC&src=ZG9uYXRvci5tYW44QGdtYWlsLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=dWsudWtyYWluaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="237" height="300" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </aside>
+
+
+        <!-- <div class="container">
+            <div class="cont_1">
+                <div class="input-box">
+                    <label for="inputMeters">Метри:</label><br>
+                    <input type="number" id="inputMeters" oninput="convertLength('meters', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputCentimeters">Сантиметри:</label><br>
+                    <input type="number" id="outputCentimeters" oninput="convertLength('centimeters', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputMillimeters">Міліметри:</label><br>
+                    <input type="number" id="outputMillimeters" oninput="convertLength('millimeters', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputKilometers">Кілометри:</label><br>
+                    <input type="number" id="outputKilometers" oninput="convertLength('kilometers', this.value)">
+                </div>
+            </div>
+
+
+            <div class="cont_2">
+                <div class="input-box">
+                    <label for="outputFeet">Фути:</label><br>
+                    <input type="number" id="outputFeet" oninput="convertLength('feet', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputYards">Ярди:</label><br>
+                    <input type="number" id="outputYards" oninput="convertLength('yards', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputMiles">Милі:</label><br>
+                    <input type="number" id="outputMiles" oninput="convertLength('miles', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputInches">Дюйми:</label><br>
+                    <input type="number" id="outputInches" oninput="convertLength('inches', this.value)">
+                </div>
+            </div></div> -->
+            
+            
+        
+        <!-- <script>
+            function convertLength(from, value) {
+                const inputValue = parseFloat(value);
+        
+                if (from === 'meters') {
+                    const centimeters = inputValue * 100;
+                    const millimeters = inputValue * 1000;
+                    const kilometers = inputValue / 1000;
+        
+                    document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+                    document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+                    document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+                    
+                    document.getElementById('outputFeet').value = (inputValue * 3.2808).toFixed(2);
+                    document.getElementById('outputYards').value = (inputValue * 1.0936).toFixed(2);
+                    document.getElementById('outputMiles').value = (inputValue * 0.00062137).toFixed(6);
+                    document.getElementById('outputInches').value = (inputValue * 39.370).toFixed(2);
+                } else if (from === 'centimeters') {
+                    const meters = inputValue / 100;
+                    const millimeters = meters * 1000;
+                    const kilometers = meters / 1000;
+        
+                    document.getElementById('inputMeters').value = meters.toFixed(2);
+                    document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+                    document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        
+                    document.getElementById('outputFeet').value = (meters * 3.2808).toFixed(2);
+                    document.getElementById('outputYards').value = (meters * 1.0936).toFixed(2);
+                    document.getElementById('outputMiles').value = (meters * 0.00062137).toFixed(6);
+                    document.getElementById('outputInches').value = (meters * 39.370).toFixed(2);
+                } else if (from === 'millimeters') {
+                    const meters = inputValue / 1000;
+                    const centimeters = meters * 100;
+                    const kilometers = meters / 1000;
+        
+                    document.getElementById('inputMeters').value = meters.toFixed(2);
+                    document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+                    document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        
+                    document.getElementById('outputFeet').value = (meters * 3.2808).toFixed(2);
+                    document.getElementById('outputYards').value = (meters * 1.0936).toFixed(2);
+                    document.getElementById('outputMiles').value = (meters * 0.00062137).toFixed(6);
+                    document.getElementById('outputInches').value = (meters * 39.370).toFixed(2);
+                } else if (from === 'kilometers') {
+                    const meters = inputValue * 1000;
+                    const centimeters = meters * 100;
+                    const millimeters = meters * 1000;
+        
+                    document.getElementById('inputMeters').value = meters.toFixed(2);
+                    document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+                    document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+        
+                    document.getElementById('outputFeet').value = (meters * 3.2808).toFixed(2);
+                    document.getElementById('outputYards').value = (meters * 1.0936).toFixed(2);
+                    document.getElementById('outputMiles').value = (meters * 0.00062137).toFixed(6);
+                    document.getElementById('outputInches').value = (meters * 39.370).toFixed(2);
+                } else if (from === 'feet') {
+                    const meters = inputValue / 3.2808;
+                    const centimeters = meters * 100;
+                    const millimeters = meters * 1000;
+                    const kilometers = meters / 1000;
+        
+                    document.getElementById('inputMeters').value = meters.toFixed(2);
+                    document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+                    document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+                    document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        
+
+                    document.getElementById('outputYards').value = (meters * 1.0936).toFixed(2);
+                    document.getElementById('outputMiles').value = (meters * 0.00062137).toFixed(6);
+                    document.getElementById('outputInches').value = (meters * 39.370).toFixed(2);
+                } else if (from === 'yards') {
+                    const meters = inputValue / 1.0936;
+                    const centimeters = meters * 100;
+                    const millimeters = meters * 1000;
+                    const kilometers = meters / 1000;
+        
+                    document.getElementById('inputMeters').value = meters.toFixed(2);
+                    document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+                    document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+                    document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        
+
+                    document.getElementById('outputFeet').value = (meters * 3.2808).toFixed(2);
+                    document.getElementById('outputMiles').value = (meters * 0.00062137).toFixed(6);
+                    document.getElementById('outputInches').value = (meters * 39.370).toFixed(2);
+                } else if (from === 'miles') {
+                    const meters = inputValue / 0.00062137;
+                    const centimeters = meters * 100;
+                    const millimeters = meters * 1000;
+                    const kilometers = meters / 1000;
+        
+                    document.getElementById('inputMeters').value = meters.toFixed(2);
+                    document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+                    document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+                    document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        
+
+                    document.getElementById('outputFeet').value = (meters * 3.2808).toFixed(2);
+                    document.getElementById('outputYards').value = (meters * 1.0936).toFixed(2);
+                    document.getElementById('outputInches').value = (meters * 39.370).toFixed(2);
+                } else if (from === 'inches') {
+                    const meters = inputValue / 39.370;
+                    const centimeters = meters * 100;
+                    const millimeters = meters * 1000;
+                    const kilometers = meters / 1000;
+        
+                    document.getElementById('inputMeters').value = meters.toFixed(2);
+                    document.getElementById('outputCentimeters').value = centimeters.toFixed(2);
+                    document.getElementById('outputMillimeters').value = millimeters.toFixed(2);
+                    document.getElementById('outputKilometers').value = kilometers.toFixed(6);
+        
+
+                    document.getElementById('outputFeet').value = (meters * 3.2808).toFixed(2);
+                    document.getElementById('outputYards').value = (meters * 1.0936).toFixed(2);
+                    document.getElementById('outputMiles').value = (meters * 0.00062137).toFixed(6);
+                }
+            }
+        </script> -->
+
+
+
+
+        <div class="container">
+            <div class="cont_1">
+                <div class="input-box">
+                    <label for="outputKilometers">Мілісекунди:</label><br>
+                    <input type="number" id="Miliseconds" oninput="convertLength('Miliseconds', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="inputMeters">Секунди:</label><br>
+                    <input type="number" id="Seconds" oninput="convertLength('Seconds', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputCentimeters">Хвилини:</label><br>
+                    <input type="number" id="Minutes" oninput="convertLength('Minutes', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputMillimeters">Години:</label><br>
+                    <input type="number" id="Hours" oninput="convertLength('Hours', this.value)">
+                </div>
+                
+            </div>
+
+
+            <div class="cont_2">
+                <div class="input-box">
+                    <label for="outputKilometers">Дні:</label><br>
+                    <input type="number" id="Days" oninput="convertLength('Days', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputYards">Тижні:</label><br>
+                    <input type="number" id="Weeks" oninput="convertLength('Weeks', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputMiles">Місяці:</label><br>
+                    <input type="number" id="Months" oninput="convertLength('Months', this.value)">
+                </div>
+                <div class="input-box">
+                    <label for="outputInches">Роки:</label><br>
+                    <input type="number" id="Years" oninput="convertLength('Years', this.value)">
+                </div>
+
+            <script>
+            function convertLength(from, value) {
+                const inputValue = parseFloat(value);
+        
+                if (from === 'Miliseconds') {
+                    // const Miliseconds = inputValue * 1;
+                    const seconds = inputValue / 1000;
+                    const minutes = inputValue / 60000;
+                    const hours = inputValue / 3600000;
+                    const days = inputValue / 8640000;
+                    const weeks = inputValue / 604800016.56;
+                    const months = inputValue / 2629800000;
+                    const years = inputValue / 31557600000;
+        
+                    // document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    document.getElementById('Seconds').value = seconds.toFixed(2);
+                    document.getElementById('Minutes').value = minutes.toFixed(2);
+
+                    document.getElementById('Hours').value = hours.toFixed(2);
+                    document.getElementById('Days').value = days.toFixed(2);
+                    document.getElementById('Weeks').value = weeks.toFixed(2);
+
+                    document.getElementById('Months').value = months.toFixed(2);
+                    document.getElementById('Years').value = years.toFixed(2);
+
+
+
+                } else if (from === 'Seconds') {
+                    const Miliseconds = inputValue * 1000;
+                    // const seconds = inputValue * 1000;
+                    const minutes = inputValue / 60;
+                    const hours = inputValue / 3600;
+                    const days = inputValue / 86400;
+                    const weeks = inputValue / 604800.02;
+                    const months = inputValue / 2629800;
+                    const years = inputValue / 31557600;
+        
+                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    // document.getElementById('Seconds').value = Seconds.toFixed(2);
+                    document.getElementById('Minutes').value = minutes.toFixed(3);
+
+                    document.getElementById('Hours').value = hours.toFixed(4);
+                    document.getElementById('Days').value = days.toFixed(5);
+                    document.getElementById('Weeks').value = weeks.toFixed(5);
+
+                    document.getElementById('Months').value = months.toFixed(5);
+                    document.getElementById('Years').value = years.toFixed(5);
+
+
+                    
+                } else if (from === 'Minutes') {
+                    const Miliseconds = inputValue * 60000;
+                    const seconds = inputValue * 60;
+                    // const minutes = inputValue * 60;
+                    const hours = inputValue / 60;
+                    const days = inputValue / 1440;
+                    const weeks = inputValue / 10080;
+                    const months = inputValue / 43830;
+                    const years = inputValue / 43830;
+        
+                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    document.getElementById('Seconds').value = seconds.toFixed(3);
+                    // document.getElementById('Minutes').value = Minutes.toFixed(2);
+
+                    document.getElementById('Hours').value = hours.toFixed(3);
+                    document.getElementById('Days').value = days.toFixed(4);
+                    document.getElementById('Weeks').value = weeks.toFixed(4);
+
+                    document.getElementById('Months').value = Months.toFixed(5);
+                    document.getElementById('Years').value = years.toFixed(5);
+
+
+
+                } else if (from === 'Hours') {
+                    const Miliseconds = inputValue * 3600000;
+                    const seconds = inputValue * 3600;
+                    const minutes = inputValue * 60;
+                    // const hours = inputValue / 60;
+                    const days = inputValue / 24;
+                    const weeks = inputValue / 168;
+                    const months = inputValue / 730.5;
+                    const years = inputValue / 8766;
+        
+                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    document.getElementById('Seconds').value = seconds.toFixed(3);
+                    document.getElementById('Minutes').value = minutes.toFixed(2);
+
+                    // document.getElementById('Hours').value = Hours.toFixed(3);
+                    document.getElementById('Days').value = days.toFixed(4);
+                    document.getElementById('Weeks').value = weeks.toFixed(4);
+
+                    document.getElementById('Months').value = months.toFixed(5);
+                    document.getElementById('Years').value = years.toFixed(5);
+
+
+                } else if (from === 'Days') {
+                    const Miliseconds = inputValue * 86400000;
+                    const seconds = inputValue * 86400;
+                    const minutes = inputValue * 1440;
+                    const hours = inputValue * 24;
+                    // const days = inputValue / 24;
+                    const weeks = inputValue / 7;
+                    const months = inputValue / 30.4375;
+                    const years = inputValue / 365.25;
+        
+                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    document.getElementById('Seconds').value = seconds.toFixed(3);
+                    document.getElementById('Minutes').value = minutes.toFixed(2);
+
+                    document.getElementById('Hours').value = hours.toFixed(3);
+                    // document.getElementById('Days').value = Days.toFixed(4);
+                    document.getElementById('Weeks').value = weeks.toFixed(4);
+
+                    document.getElementById('Months').value = months.toFixed(5);
+                    document.getElementById('Years').value = years.toFixed(5);
+
+
+
+                } else if (from === 'Weeks') {
+                    const Miliseconds = inputValue * 604800016.56;
+                    const seconds = inputValue * 604800.02;
+                    const minutes = inputValue * 10080;
+                    const hours = inputValue * 168;
+                    const days = inputValue * 7;
+                    // const weeks = inputValue / 7;
+                    const months = inputValue / 4.3482;
+                    const years = inputValue / 52.1786;
+        
+                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    document.getElementById('Seconds').value = seconds.toFixed(3);
+                    document.getElementById('Minutes').value = minutes.toFixed(2);
+
+                    document.getElementById('Hours').value = hours.toFixed(3);
+                    document.getElementById('Days').value = days.toFixed(4);
+                    // document.getElementById('Weeks').value = Weeks.toFixed(4);
+
+                    document.getElementById('Months').value = months.toFixed(5);
+                    document.getElementById('Years').value = years.toFixed(5);
+
+
+
+                } else if (from === 'Months') {
+                    const Miliseconds = inputValue * 2629800000;
+                    const seconds = inputValue * 2629800;
+                    const minutes = inputValue * 43830;
+                    const hours = inputValue * 730.5;
+                    const days = inputValue * 30.4375;
+                    const weeks = inputValue * 4.3482;
+                    // const months = inputValue / 4.3482;
+                    const years = inputValue / 12;
+        
+                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    document.getElementById('Seconds').value = seconds.toFixed(3);
+                    document.getElementById('Minutes').value = minutes.toFixed(2);
+
+                    document.getElementById('Hours').value = hours.toFixed(3);
+                    document.getElementById('Days').value = days.toFixed(4);
+                    document.getElementById('Weeks').value = weeks.toFixed(4);
+
+                    // document.getElementById('Months').value = Months.toFixed(5);
+                    document.getElementById('Years').value = years.toFixed(5);
+
+
+
+                } else if (from === 'Years') {
+                    const Miliseconds = inputValue * 31557600000;
+                    const seconds = inputValue * 31557600;
+                    const minutes = inputValue * 525960;
+                    const hours = inputValue * 8766;
+                    const days = inputValue * 365.25;
+                    const weeks = inputValue * 52.1786;
+                    const months = inputValue * 12;
+                    // const years = inputValue / 12;
+        
+                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
+                    document.getElementById('Seconds').value = seconds.toFixed(3);
+                    document.getElementById('Minutes').value = minutes.toFixed(2);
+
+                    document.getElementById('Hours').value = hours.toFixed(3);
+                    document.getElementById('Days').value = days.toFixed(4);
+                    document.getElementById('Weeks').value = weeks.toFixed(4);
+
+                    document.getElementById('Months').value = months.toFixed(5);
+                    // document.getElementById('Years').value = Years.toFixed(5);
+                }
+            }
+        </script>
+
+
+        
+    </main>
+
+
+    <footer>
+
+    </footer>
+    <script src="java.js"></script>
+</body>
+</html>
