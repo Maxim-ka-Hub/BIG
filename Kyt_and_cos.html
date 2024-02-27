@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style_Geo.css">
+    <title>Додавання і віднімання векторів</title>
+    <link rel="stylesheet" href="Kyt_and_cos.css">
 </head>
 <body>
     <header>
@@ -22,37 +22,18 @@
 
 
     <main>
-        <div class="content">
-            <div class="Vector_Calculator">
-                <h2>Vector Calculator</h2>
-                <form id="vectorForm">
-                <div>
-                    <label for="x1">Point 1 (x1, y1<span id="zLabel">, z1</span>):</label>
-                    <input type="number" id="x1" name="x1" required step="any">,
-                    <input type="number" id="y1" name="y1" required step="any">,
-                    <input type="number" id="z1" name="z1" required step="any" class="hidden">
-                </div>
-                <div>
-                    <label for="x2">Point 2 (x2, y2<span id="z2Label">, z2</span>):</label>
-                    <input type="number" id="x2" name="x2" required step="any">,
-                    <input type="number" id="y2" name="y2" required step="any">,
-                    <input type="number" id="z2" name="z2" required step="any" class="hidden">
-                </div>
-                <div>
-                    <label for="dimension">Dimension:</label>
-                    <select id="dimension" name="dimension" onchange="toggleZInputs()">
-                    <option value="2">2D</option>
-                    <option value="3" selected>3D</option>
-                    </select>
-                </div>
-                <button type="button" onclick="calculateVector()">Calculate</button>
-                </form>
-                <div id="result"></div>
-            </div>
+        <div class="container">
+            <h2>Кут та косинус кута між векторами</h2>
+            <label for="vector1">Введіть координати першого вектора (розділені комами):</label>
+            <input type="text" id="vector1" placeholder="напр., 1,2,3">
+            <label for="vector2">Введіть координати другого вектора (розділені комами):</label>
+            <input type="text" id="vector2" placeholder="напр., 4,5,6">
+            <button onclick="calculateAngle()">Порахувати</button>
+            <p id="result"></p>
         </div>
 
 
-
+        
 
         <aside>
             <div class="calculator">
@@ -93,7 +74,6 @@
                 <li><a href="Scalar_dobutok_vektoriv.html" title="Скалярний">Скалярний добуток векторів</a></li>
                 <li><a href="Kyt_and_cos.html" title="Кут та косинус кута між векторами">Кут та косинус кута між векторами</a></li>
             </ul>
-
             <div class="widget_1">
                 <!-- weather widget start --><a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
             </div>
@@ -110,6 +90,8 @@
     <footer>
 
     </footer>
-    <script src="java_Geo.js"></script>
+    <script src="Kyt_and_cos.js"></script>
+</body>
+</html>
 </body>
 </html>
