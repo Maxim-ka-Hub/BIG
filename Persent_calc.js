@@ -75,35 +75,10 @@ function OneDelX() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function multiplyVector() {
-    var vectorInput = document.getElementById('vector').value;
-    var scalarInput = parseFloat(document.getElementById('scalar').value);
-    var vector = vectorInput.split(',').map(parseFloat);
-
-    // Перевірка на введення коректних значень
-    if (vector.some(isNaN) || isNaN(scalarInput)) {
-        document.getElementById('result').textContent = 'Будь ласка, введіть коректні дані.';
-        return;
-    }
-
-    var result = vector.map(function (element) {
-        return element * scalarInput;
-    });
-
-    document.getElementById('result').textContent = 'Результат: ' + result.join(', ');
+function calculatePercent() {
+    var percent = parseFloat(document.getElementById("percent").value);
+    var number = parseFloat(document.getElementById("number").value);
+    var result = (percent / 100) * number;
+    result = result.toFixed(2)
+    document.getElementById("result").innerText = "Відповідь: " + result;
 }

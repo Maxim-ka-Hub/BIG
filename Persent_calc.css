@@ -83,32 +83,38 @@ aside{
 
 
 
-main .container {
-    max-width: 400px;
-    margin: 0 auto;
+main .calculator_persent {
+    width: 300px;
+    margin: 50px auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    background-color: #f4f4f4;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    text-align: center;
 }
-main .container input[type="text"] {
+
+main .calculator_persent input[type="number"] {
     width: 100%;
-    padding: 10px;
     margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 3px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
 }
-main .container button {
-    padding: 10px 20px;
+
+main .calculator_persent button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 3px;
     cursor: pointer;
 }
-main .container button:hover {
+
+main .calculator_persent button:hover {
     background-color: #0056b3;
+}
+
+main .calculator_persent p {
+    margin-top: 10px;
 }
 
 

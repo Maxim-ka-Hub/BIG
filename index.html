@@ -26,33 +26,45 @@
             <div class="calculator">
                 <input type="text" id="display" readonly>
                 <div class="buttons">
-                    <button onclick="appendNumber('1')">1</button>
-                    <button onclick="appendNumber('2')">2</button>
-                    <button onclick="appendNumber('3')">3</button>
-                    <button onclick="appendOperator('+')">+</button>
+                    <button onclick="appendOperator('%')">%</button>
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="deleteLast()">↩</button>
+
                     <br>
-                    <button onclick="appendNumber('4')">4</button>
-                    <button onclick="appendNumber('5')">5</button>
-                    <button onclick="appendNumber('6')">6</button>
-                    <button onclick="appendOperator('-')">-</button>
+
+                    <button onclick="OneDelX()">1/x</button>
+                    <button onclick="x_square()">x²</button>
+                    <button onclick="sqrt()">√x</button>
+                    <button onclick="appendOperator('/')">/</button>
+
                     <br>
+
                     <button onclick="appendNumber('7')">7</button>
                     <button onclick="appendNumber('8')">8</button>
                     <button onclick="appendNumber('9')">9</button>
                     <button onclick="appendOperator('*')">*</button>
+
                     <br>
-                    <button onclick="appendNumber('0')">0</button>
-                    <button onclick="clearDisplay()">C</button>
-                    <button onclick="calculate()">=</button>
-                    <button onclick="appendOperator('/')">/</button>
+
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('-')">-</button>
+
                     <br>
-                    <button onclick="PlusMinus()">+/-</button>
-                    <button onclick="one_del_x()">🠔</button>
-                    <button onclick="x_square()">²</button>
-                    <button onclick="sqrt()">√2</button>
+
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendOperator('+')">+</button>
+
                     <br>
-                    <button onclick="deleteLast()">DEL</button>
                     
+                    <button onclick="PlusMinus()">+/-</button>
+                    <button onclick="appendNumber('0')">0</button>
+                    <button onclick="appendNumber('.')">.</button>
+                    <button onclick="equal()">=</button>
+                    <br>                    
                 </div>
             </div>
 
@@ -280,191 +292,7 @@
                 </div>
 
             <script>
-            function convertLength(from, value) {
-                const inputValue = parseFloat(value);
-        
-                if (from === 'Miliseconds') {
-                    // const Miliseconds = inputValue * 1;
-                    const seconds = inputValue / 1000;
-                    const minutes = inputValue / 60000;
-                    const hours = inputValue / 3600000;
-                    const days = inputValue / 8640000;
-                    const weeks = inputValue / 604800016.56;
-                    const months = inputValue / 2629800000;
-                    const years = inputValue / 31557600000;
-        
-                    // document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    document.getElementById('Seconds').value = seconds.toFixed(2);
-                    document.getElementById('Minutes').value = minutes.toFixed(2);
-
-                    document.getElementById('Hours').value = hours.toFixed(2);
-                    document.getElementById('Days').value = days.toFixed(2);
-                    document.getElementById('Weeks').value = weeks.toFixed(2);
-
-                    document.getElementById('Months').value = months.toFixed(2);
-                    document.getElementById('Years').value = years.toFixed(2);
-
-
-
-                } else if (from === 'Seconds') {
-                    const Miliseconds = inputValue * 1000;
-                    // const seconds = inputValue * 1000;
-                    const minutes = inputValue / 60;
-                    const hours = inputValue / 3600;
-                    const days = inputValue / 86400;
-                    const weeks = inputValue / 604800.02;
-                    const months = inputValue / 2629800;
-                    const years = inputValue / 31557600;
-        
-                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    // document.getElementById('Seconds').value = Seconds.toFixed(2);
-                    document.getElementById('Minutes').value = minutes.toFixed(3);
-
-                    document.getElementById('Hours').value = hours.toFixed(4);
-                    document.getElementById('Days').value = days.toFixed(5);
-                    document.getElementById('Weeks').value = weeks.toFixed(5);
-
-                    document.getElementById('Months').value = months.toFixed(5);
-                    document.getElementById('Years').value = years.toFixed(5);
-
-
-                    
-                } else if (from === 'Minutes') {
-                    const Miliseconds = inputValue * 60000;
-                    const seconds = inputValue * 60;
-                    // const minutes = inputValue * 60;
-                    const hours = inputValue / 60;
-                    const days = inputValue / 1440;
-                    const weeks = inputValue / 10080;
-                    const months = inputValue / 43830;
-                    const years = inputValue / 43830;
-        
-                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    document.getElementById('Seconds').value = seconds.toFixed(3);
-                    // document.getElementById('Minutes').value = Minutes.toFixed(2);
-
-                    document.getElementById('Hours').value = hours.toFixed(3);
-                    document.getElementById('Days').value = days.toFixed(4);
-                    document.getElementById('Weeks').value = weeks.toFixed(4);
-
-                    document.getElementById('Months').value = Months.toFixed(5);
-                    document.getElementById('Years').value = years.toFixed(5);
-
-
-
-                } else if (from === 'Hours') {
-                    const Miliseconds = inputValue * 3600000;
-                    const seconds = inputValue * 3600;
-                    const minutes = inputValue * 60;
-                    // const hours = inputValue / 60;
-                    const days = inputValue / 24;
-                    const weeks = inputValue / 168;
-                    const months = inputValue / 730.5;
-                    const years = inputValue / 8766;
-        
-                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    document.getElementById('Seconds').value = seconds.toFixed(3);
-                    document.getElementById('Minutes').value = minutes.toFixed(2);
-
-                    // document.getElementById('Hours').value = Hours.toFixed(3);
-                    document.getElementById('Days').value = days.toFixed(4);
-                    document.getElementById('Weeks').value = weeks.toFixed(4);
-
-                    document.getElementById('Months').value = months.toFixed(5);
-                    document.getElementById('Years').value = years.toFixed(5);
-
-
-                } else if (from === 'Days') {
-                    const Miliseconds = inputValue * 86400000;
-                    const seconds = inputValue * 86400;
-                    const minutes = inputValue * 1440;
-                    const hours = inputValue * 24;
-                    // const days = inputValue / 24;
-                    const weeks = inputValue / 7;
-                    const months = inputValue / 30.4375;
-                    const years = inputValue / 365.25;
-        
-                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    document.getElementById('Seconds').value = seconds.toFixed(3);
-                    document.getElementById('Minutes').value = minutes.toFixed(2);
-
-                    document.getElementById('Hours').value = hours.toFixed(3);
-                    // document.getElementById('Days').value = Days.toFixed(4);
-                    document.getElementById('Weeks').value = weeks.toFixed(4);
-
-                    document.getElementById('Months').value = months.toFixed(5);
-                    document.getElementById('Years').value = years.toFixed(5);
-
-
-
-                } else if (from === 'Weeks') {
-                    const Miliseconds = inputValue * 604800016.56;
-                    const seconds = inputValue * 604800.02;
-                    const minutes = inputValue * 10080;
-                    const hours = inputValue * 168;
-                    const days = inputValue * 7;
-                    // const weeks = inputValue / 7;
-                    const months = inputValue / 4.3482;
-                    const years = inputValue / 52.1786;
-        
-                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    document.getElementById('Seconds').value = seconds.toFixed(3);
-                    document.getElementById('Minutes').value = minutes.toFixed(2);
-
-                    document.getElementById('Hours').value = hours.toFixed(3);
-                    document.getElementById('Days').value = days.toFixed(4);
-                    // document.getElementById('Weeks').value = Weeks.toFixed(4);
-
-                    document.getElementById('Months').value = months.toFixed(5);
-                    document.getElementById('Years').value = years.toFixed(5);
-
-
-
-                } else if (from === 'Months') {
-                    const Miliseconds = inputValue * 2629800000;
-                    const seconds = inputValue * 2629800;
-                    const minutes = inputValue * 43830;
-                    const hours = inputValue * 730.5;
-                    const days = inputValue * 30.4375;
-                    const weeks = inputValue * 4.3482;
-                    // const months = inputValue / 4.3482;
-                    const years = inputValue / 12;
-        
-                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    document.getElementById('Seconds').value = seconds.toFixed(3);
-                    document.getElementById('Minutes').value = minutes.toFixed(2);
-
-                    document.getElementById('Hours').value = hours.toFixed(3);
-                    document.getElementById('Days').value = days.toFixed(4);
-                    document.getElementById('Weeks').value = weeks.toFixed(4);
-
-                    // document.getElementById('Months').value = Months.toFixed(5);
-                    document.getElementById('Years').value = years.toFixed(5);
-
-
-
-                } else if (from === 'Years') {
-                    const Miliseconds = inputValue * 31557600000;
-                    const seconds = inputValue * 31557600;
-                    const minutes = inputValue * 525960;
-                    const hours = inputValue * 8766;
-                    const days = inputValue * 365.25;
-                    const weeks = inputValue * 52.1786;
-                    const months = inputValue * 12;
-                    // const years = inputValue / 12;
-        
-                    document.getElementById('Miliseconds').value = Miliseconds.toFixed(2);
-                    document.getElementById('Seconds').value = seconds.toFixed(3);
-                    document.getElementById('Minutes').value = minutes.toFixed(2);
-
-                    document.getElementById('Hours').value = hours.toFixed(3);
-                    document.getElementById('Days').value = days.toFixed(4);
-                    document.getElementById('Weeks').value = weeks.toFixed(4);
-
-                    document.getElementById('Months').value = months.toFixed(5);
-                    // document.getElementById('Years').value = Years.toFixed(5);
-                }
-            }
+            
         </script>
 
 

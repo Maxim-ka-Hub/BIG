@@ -79,31 +79,52 @@ function OneDelX() {
 
 
 
+function calculate() {
+    document.getElementById('wholeNumber').innerText = ``
+    document.getElementById('remainder').innerText = ``
+    document.getElementById('gcd').innerText = ``
+    document.getElementById('lcm').innerText = ``
+    document.getElementById('primeFactors').innerText = ``
 
 
+    const num1 = parseInt(document.getElementById('num1').value);
+    const num2 = parseInt(document.getElementById('num2').value);
+    
+
+    const wholeNumber = Math.floor(num1 / num2);
+    const remainder = num1 % num2;
+    const gcd = calculateGCD(num1, num2);
+    const lcm = (num1 * num2) / gcd;
+    const primeFactors1 = primeFactors(num1);
+    const primeFactors2 = primeFactors(num2);
+
+    
 
 
+    document.getElementById('wholeNumber').innerText = `Ціле число від ділення: ${wholeNumber}`;
+    document.getElementById('remainder').innerText += `Остача від ділення: ${remainder}`;
+    document.getElementById('gcd').innerText += `Найбільший спільний дільник: ${gcd}`;
+    document.getElementById('lcm').innerText += `Найменше спільне кратне: ${lcm}`;
+    document.getElementById('primeFactors').innerText += `Розклад числа на множники: \n Перше число: ${primeFactors1.join(', ')}\n Друге число: ${primeFactors2.join(', ')}`;
+}
 
-
-
-
-
-
-
-function multiplyVector() {
-    var vectorInput = document.getElementById('vector').value;
-    var scalarInput = parseFloat(document.getElementById('scalar').value);
-    var vector = vectorInput.split(',').map(parseFloat);
-
-    // Перевірка на введення коректних значень
-    if (vector.some(isNaN) || isNaN(scalarInput)) {
-        document.getElementById('result').textContent = 'Будь ласка, введіть коректні дані.';
-        return;
+function calculateGCD(x, y) {
+    if (y === 0) {
+        return x;
     }
+    return calculateGCD(y, x % y);
+}
 
-    var result = vector.map(function (element) {
-        return element * scalarInput;
-    });
-
-    document.getElementById('result').textContent = 'Результат: ' + result.join(', ');
+function primeFactors(n) {
+    const factors = [];
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        while (n % i === 0) {
+            factors.push(i);
+            n /= i;
+        }
+    }
+    if (n > 1) {
+        factors.push(n);
+    }
+    return factors;
 }

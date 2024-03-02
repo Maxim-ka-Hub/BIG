@@ -1,8 +1,10 @@
 let displayValue = '';
+
     
 function appendNumber(number) {
     displayValue += number;
     document.getElementById('display').value = displayValue;
+
 }
 
 function appendOperator(operator) {
@@ -10,6 +12,7 @@ function appendOperator(operator) {
         displayValue += operator;
         document.getElementById('display').value = displayValue;
     }
+
 }
 
 function clearDisplay() {
@@ -17,13 +20,19 @@ function clearDisplay() {
     document.getElementById('display').value = displayValue;
 }
 
-function calculate() {
-    try {
+function equal() {
+    try{
         displayValue = eval(displayValue);
         document.getElementById('display').value = displayValue;
+        appendNumber('.');
+        deleteLast();
+        if (document.getElementById('display').value == 'undefined'){
+            clearDisplay();
+            document.getElementById('display').ariaPlaceholder = 'undefined';
+        }
     } catch (error) {
-        document.getElementById('display').value = 'Error';
-    }
+        document.getElementById('display').value = '';
+    }   
 }
 
 function PlusMinus() {
@@ -37,6 +46,8 @@ function x_square() {
     if (displayValue !== '' && displayValue !== 'Error') {
         displayValue = parseFloat(displayValue) **2;
         document.getElementById('display').value = displayValue;
+        appendNumber('.');
+        deleteLast();
     }
 }
 
@@ -44,14 +55,21 @@ function sqrt() {
     if (displayValue !== '' && displayValue !== 'Error') {
         displayValue = Math.sqrt(parseFloat(displayValue));
         document.getElementById('display').value = displayValue;
+        appendNumber('.');
+        deleteLast();
     }
 }
 
-function one_del_x() {
-    if (displayValue !== '' && displayValue !== 'Error') {
-        displayValue = 1/parseFloat(displayValue);
-        document.getElementById('display').value = displayValue;
-    }
+function deleteLast() { 
+    displayValue = displayValue.slice(0, -1);
+    document.getElementById('display').value = displayValue;
+}
+
+function OneDelX() {
+    displayValue = 1/displayValue
+    document.getElementById('display').value = displayValue;
+    appendNumber('.');
+    deleteLast();
 }
 
 

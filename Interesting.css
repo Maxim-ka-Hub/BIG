@@ -89,26 +89,25 @@ main .container {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
 }
-main .container input[type="text"] {
+main .container input[type="number"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 8px;
+    margin: 5px 0;
     box-sizing: border-box;
 }
 main .container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 main .container button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
 

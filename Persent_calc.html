@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Додавання і віднімання векторів</title>
-    <link rel="stylesheet" href="Kyt_and_cos.css">
+    <link rel="stylesheet" href="Persent_calc.css">
 </head>
 <body>
     <header>
@@ -22,13 +22,13 @@
 
 
     <main>
-        <div class="container">
-            <h2>Кут та косинус кута між векторами</h2>
-            <label for="vector1">Введіть координати першого вектора (розділені комами):</label>
-            <input type="text" id="vector1" placeholder="напр., 1,2,3">
-            <label for="vector2">Введіть координати другого вектора (розділені комами):</label>
-            <input type="text" id="vector2" placeholder="напр., 4,5,6">
-            <button onclick="calculateAngle()">Порахувати</button>
+        <div class="calculator_persent">
+            <h2>Percentage Calculator</h2>
+            <label for="percent">Percent:</label>
+            <input type="number" id="percent">
+            <label for="number">Number:</label>
+            <input type="number" id="number">
+            <button onclick="calculatePercent()">Convert Percent to Number</button>
             <p id="result"></p>
         </div>
 
@@ -37,7 +37,7 @@
 
         <aside>
             <div class="calculator">
-                <input type="text" id="display" readonly>
+                <input type="text" id="display" >
                 <div class="buttons">
                     <button onclick="appendOperator('%')">%</button>
                     <button onclick="clearDisplay()">C</button>
@@ -79,16 +79,11 @@
                     <button onclick="equal()">=</button>
                     <br>                    
                 </div>
-            </div>
 
             <ul>
-                <li><a href="Geometria.html" title="Geometria">Геометрія</a></li>
-                <li><a href="Plus_minus.html" title="Plus minus">Додавання та віднімання</a></li>
-                <li><a href="Geo_Vec_length.html" title="Geo_Vec_length">Довжина вектора</a></li>
-                <li><a href="Mnoj_vek_na_num.html" title="Mnoj_vek_na_num">Множення вектора на число</a></li>
-                <li><a href="Scalar_dobutok_vektoriv.html" title="Скалярний">Скалярний добуток векторів</a></li>
-                <li><a href="Kyt_and_cos.html" title="Кут та косинус кута між векторами">Кут та косинус кута між векторами</a></li>
+                <li><a href="Algebra.html" title="Алгебра">Алгебра</a></li>
                 <li><a href="Interesting.html" title="НСК НСД">НСК НСД</a></li>
+                <li><a href="Persent_calc.html">Калькулятор процентів</a></li>
             </ul>
             <div class="widget_1">
                 <!-- weather widget start --><a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
@@ -106,7 +101,7 @@
     <footer>
 
     </footer>
-    <script src="Kyt_and_cos.js"></script>
+    <script src="Persent_calc.js"></script>
 </body>
 </html>
 </body>

@@ -98,39 +98,52 @@
             <div class="calculator">
                 <input type="text" id="display" readonly>
                 <div class="buttons">
-                    <button onclick="appendNumber('1')">1</button>
-                    <button onclick="appendNumber('2')">2</button>
-                    <button onclick="appendNumber('3')">3</button>
-                    <button onclick="appendOperator('+')">+</button>
+                    <button onclick="appendOperator('%')">%</button>
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="deleteLast()">↩</button>
+
                     <br>
-                    <button onclick="appendNumber('4')">4</button>
-                    <button onclick="appendNumber('5')">5</button>
-                    <button onclick="appendNumber('6')">6</button>
-                    <button onclick="appendOperator('-')">-</button>
+
+                    <button onclick="OneDelX()">1/x</button>
+                    <button onclick="x_square()">x²</button>
+                    <button onclick="sqrt()">√x</button>
+                    <button onclick="appendOperator('/')">/</button>
+
                     <br>
+
                     <button onclick="appendNumber('7')">7</button>
                     <button onclick="appendNumber('8')">8</button>
                     <button onclick="appendNumber('9')">9</button>
                     <button onclick="appendOperator('*')">*</button>
+
                     <br>
-                    <button onclick="appendNumber('0')">0</button>
-                    <button onclick="clearDisplay()">C</button>
-                    <button onclick="calculate()">=</button>
-                    <button onclick="appendOperator('/')">/</button>
+
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('-')">-</button>
+
                     <br>
-                    <button onclick="PlusMinus()">+/-</button>
-                    <button onclick="one_del_x()">🠔</button>
-                    <button onclick="x_square()">²</button>
-                    <button onclick="sqrt()">√2</button>
+
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendOperator('+')">+</button>
+
                     <br>
-                    <button onclick="deleteLast()">DEL</button>
                     
+                    <button onclick="PlusMinus()">+/-</button>
+                    <button onclick="appendNumber('0')">0</button>
+                    <button onclick="appendNumber('.')">.</button>
+                    <button onclick="equal()">=</button>
+                    <br>                    
                 </div>
             </div>
             
 
             <ul>
-                <li>Рівняння</li>
+                <li><a href="Interesting.html" title="НСК НСД">НСК НСД</a></li>
+                <li><a href="Persent_calc.html">Калькулятор процентів</a></li>
             </ul>
             <div class="widget_1">
                 <a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
