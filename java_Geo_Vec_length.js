@@ -1,5 +1,24 @@
 let displayValue = '';
 
+
+function appendOperator(operator) {
+    const operators = ['+', '-', '*', '/'];
+
+    // Видаляємо всі пробіли з кінця введеного виразу
+    const trimmedValue = displayValue.trim();
+    const lastChar = trimmedValue[trimmedValue.length - 1]; // Отримуємо останній символ
+
+    // Перевіряємо, чи останній символ - це оператор
+    if (operators.includes(lastChar)) {
+        // Якщо так, то замінюємо його на новий оператор
+        displayValue = trimmedValue.slice(0, -1) + operator;
+    } else {
+        // Інакше, просто додаємо новий оператор до виразу
+        displayValue += operator;
+    }
+
+    document.getElementById('display').value = displayValue;
+}
     
 function appendNumber(number) {
     displayValue += number;
@@ -7,13 +26,6 @@ function appendNumber(number) {
 
 }
 
-function appendOperator(operator) {
-    if (displayValue !== '' && !isNaN(displayValue[displayValue.length - 1])) {
-        displayValue += operator;
-        document.getElementById('display').value = displayValue;
-    }
-
-}
 
 function clearDisplay() {
     displayValue = '';

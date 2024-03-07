@@ -1,24 +1,5 @@
 let displayValue = '';
 
-
-function appendOperator(operator) {
-    const operators = ['+', '-', '*', '/'];
-
-    // Видаляємо всі пробіли з кінця введеного виразу
-    const trimmedValue = displayValue.trim();
-    const lastChar = trimmedValue[trimmedValue.length - 1]; // Отримуємо останній символ
-
-    // Перевіряємо, чи останній символ - це оператор
-    if (operators.includes(lastChar)) {
-        // Якщо так, то замінюємо його на новий оператор
-        displayValue = trimmedValue.slice(0, -1) + operator;
-    } else {
-        // Інакше, просто додаємо новий оператор до виразу
-        displayValue += operator;
-    }
-
-    document.getElementById('display').value = displayValue;
-}
     
 function appendNumber(number) {
     displayValue += number;
@@ -26,6 +7,13 @@ function appendNumber(number) {
 
 }
 
+function appendOperator(operator) {
+    if (displayValue !== '' && !isNaN(displayValue[displayValue.length - 1])) {
+        displayValue += operator;
+        document.getElementById('display').value = displayValue;
+    }
+
+}
 
 function clearDisplay() {
     displayValue = '';
@@ -87,10 +75,31 @@ function OneDelX() {
 
 
 
-function calculatePercent() {
-    var percent = parseFloat(document.getElementById("percent").value);
-    var number = parseFloat(document.getElementById("number").value);
-    var result = (percent / 100) * number;
-    result = result.toFixed(2)
-    document.getElementById("result").innerText = "Відповідь: " + result;
+function findGCD(a, b) {
+    if (b === 0) {
+        return a;
+    } else {
+        return findGCD(b, a % b);
+    }
+}
+
+function findLCM(a, b) {
+    return (a * b) / findGCD(a, b);
+}
+
+function calculateCommonDenominator() {
+    var numerator1 = parseInt(document.getElementById("numerator1").value);
+    var denominator1 = parseInt(document.getElementById("denominator1").value);
+    var numerator2 = parseInt(document.getElementById("numerator2").value);
+    var denominator2 = parseInt(document.getElementById("denominator2").value);
+
+    var lcm = findLCM(denominator1, denominator2);
+    var commonNumerator1 = numerator1 * (lcm / denominator1);
+    var commonNumerator2 = numerator2 * (lcm / denominator2);
+
+    var result = "Common Denominator: " + lcm + "<br>";
+    result += "Equivalent Numerator 1: " + commonNumerator1 + "<br>";
+    result += "Equivalent Numerator 2: " + commonNumerator2;
+
+    document.getElementById("result").innerHTML = result;
 }

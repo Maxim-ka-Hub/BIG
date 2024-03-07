@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квадратне рівняння калькулятор</title>
-    <link rel="stylesheet" href="style_Alg.css">
+    <title>Додавання і віднімання векторів</title>
+    <link rel="stylesheet" href="Common_Denominator.css">
 </head>
 <body>
-
     <header>
         <div class="container">
             <div class="logo"><img src="bird-colorful-logo-gradient-vector_343694-1365.avif" alt="111"></div>
@@ -23,80 +22,37 @@
 
 
     <main>
-        <div class="content">
-            <div class="container">
-                <h1>Квадратне рівняння калькулятор</h1>
-                <div class="input-container">
-                    <input type="text" id="input-a" style="width: 30px;">X<sup>2</sup> + 
-                    <input type="text" id="input-b" style="width: 30px;">X + 
-                    <input type="text" id="input-c" style="width: 30px;"> = 0
-                </div>
-                <button onclick="solveQuadratic()">Розв'язати</button>
-                <div class="Deskreminant" id="Deskreminant"></div>
-                <br>
-                <div id="sqrt_Deskreminant"></div>
-                <br>
-                <div id="x1"></div>
-                <br>
-                <div id="x2"></div>
+        <div class="container">
+            <h2>Зведення  дробів до спільного знаменника</h2>
+            <div>
+                <label for="numerator1">Чисельни 1:</label>
+                <input type="number" id="numerator1">
             </div>
-
-
-
-            <div class="second_calc">
-                <h1>Кубічне рівняння калькулятор</h1>
-                <div class="input-container">
-                    <input type="text" id="input-a_2" style="width: 30px;">X<sup>3</sup> + 
-                    <input type="text" id="input-b_2" style="width: 30px;">X<sup>2</sup> + 
-                    <input type="text" id="input-c_2" style="width: 30px;"> X +
-                    <input type="text" id="input-d_2" style="width: 30px;"> = 0
-                </div>
-                <button onclick="solveBekvadrat()">Розв'язати</button>
-                <div class="Deskreminant" id="Deskreminant_2"></div>
-                <br>
-                <div id="sqrt_Deskreminant_2"></div>
-                <br>
-                <div id="x1_2"></div>
-                <br>
-                <div id="x2_2"></div>
-                <br>
-                <div id="x3_2"></div>
+            <div>
+                <label for="denominator1">знаменник 1:</label>
+                <input type="number" id="denominator1">
             </div>
-
-
-            <div class="fesk_bi_kw">
-                <h1>Квадратне рівняння калькулятор</h1>
-                <div class="input-container">
-                    <input type="text" id="input-a-bi_kw" style="width: 30px;">X<sup>4</sup> + 
-                    <input type="text" id="input-b-bi_kw" style="width: 30px;">X<sup>2</sup> + 
-                    <input type="text" id="input-c-bi_kw" style="width: 30px;"> = 0
-                </div>
-                <button onclick="solveBiKw()">Розв'язати</button>
-                <div class="Deskreminant_bi" id="Deskreminant_bi"></div>
-                <br>
-                <div id="sqrt_Deskreminant_bi_kw"></div>
-                <br>
-                <div id="t1"></div>
-                <br>
-                <div id="t2"></div>
-                <br>
-                <div id="x1_bi_kw"></div>
-                <br>
-                <div id="x2_bi_kw"></div>
-                <br>
-                <div id="x3"></div>
-                <br>
-                <div id="x4"></div>
+            <div>
+                <label for="numerator2">Чисельни 2:</label>
+                <input type="number" id="numerator2">
             </div>
-
+            <div>
+                <label for="denominator2">знаменник 2:</label>
+                <input type="number" id="denominator2">
+            </div>
+            <button onclick="calculateCommonDenominator()">Calculate</button>
+            <p id="result"></p>
+            <div class="hr_res">
+                <hr>
+            </div>
         </div>
 
 
-
+        
 
         <aside>
             <div class="calculator">
-                <input type="text" id="display" readonly>
+                <input type="text" id="display" >
                 <div class="buttons">
                     <button onclick="appendOperator('%')">%</button>
                     <button onclick="clearDisplay()">C</button>
@@ -138,8 +94,6 @@
                     <button onclick="equal()">=</button>
                     <br>                    
                 </div>
-            </div>
-            
 
             <ul>
                 <li><a href="Algebra.html" title="Алгебра">Алгебра</a></li>
@@ -148,23 +102,23 @@
                 <li><a href="Common_Denominator.html">Зведення до спільного знаменника</a></li>
             </ul>
             <div class="widget_1">
-                <a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
+                <!-- weather widget start --><a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
             </div>
 
             <div class="widget_2">
                 <iframe src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&bgcolor=%23ffffff&ctz=UTC&src=ZG9uYXRvci5tYW44QGdtYWlsLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=dWsudWtyYWluaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="237" height="300" frameborder="0" scrolling="no"></iframe>
             </div>
         </aside>
+
+        
     </main>
 
-    <footer></footer>
 
+    <footer>
 
-
-
-    <script src="java_Alg.js"></script>
+    </footer>
+    <script src="Common_Denominator.js"></script>
 </body>
 </html>
-
-
-    
+</body>
+</html>
