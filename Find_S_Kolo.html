@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style_Vec_length.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style_Vec_length.css">
+    <title>Знаходження площі трикутника</title>
+    <link rel="stylesheet" href="Find_S_Kolo.css">
 </head>
 <body>
     <header>
@@ -31,31 +22,48 @@
 
 
     <main>
-    
-        <div class="Vector_length">
-            <h2>Знаходження довжини вектора</h2>
-            <form id="vector-form">
-                <label for="x">x:</label>
-                <input type="text" id="x" placeholder="x">
-                <label for="y">y:</label>
-                <input type="text" id="y" placeholder="y">
-                <label for="z" id="zLabel" class="hidden">z:</label>
-                <input type="text" id="z" class="hidden" placeholder="z">
-                <select id="dimension" onchange="toggleZInput()">
-                    <option value="2">Дві координати</option>
-                    <option value="3">Три координати</option>
-                </select>
-                <button type="button" onclick="calculateVectorLength()">Розрахувати</button>
-            </form>
+        <div class="container">
+            <h2>Обчислення площі Кола</h2>
+        
+            <h3>Спосіб 1: Довжина кола</h3>
+            <input type="number" id="base1" placeholder="r">
+            <button onclick="calculateArea(1)">Обчислити</button>
+        
+            <h3>Спосіб 2: Довжини дуги кола</h3>
+            <input type="number" id="sideB2" placeholder="Довжина кола">
+            <input type="number" id="sideA2" placeholder="Кут дуги">
+            <button onclick="calculateArea(2)">Обчислити</button>
+        
+            <!-- Додані інші способи введення даних -->
+        
+            <h3>Спосіб 3: Площа круга</h3>
+            <input type="number" id="side3" placeholder="r">
+            <button onclick="calculateArea(3)">Обчислити</button>
+        
+            <h3>Спосіб 4: Площа сектора</h3>
+            <input type="number" id="side4" placeholder="Площа кола">
+            <input type="number" id="height4" placeholder="кут">
+            <button onclick="calculateArea(4)">Обчислити</button>
+        
+            <h3>Спосіб 5: Площа сигмента кола</h3>
+            <input type="number" id="sideA5" placeholder="r">
+            <input type="number" id="sideB5" placeholder="кут">
+            <input type="number" id="sideC5" placeholder="хорда">
+            <button onclick="calculateArea(5)">Обчислити</button>
+
+            <h3>Спосіб 5: Площа еліпса</h3>
+            <input type="number" id="sideA6" placeholder="Менший радіус">
+            <input type="number" id="sideB6" placeholder="Більший радіус">
+            <button onclick="calculateArea(5)">Обчислити</button>
+        
             <div id="result"></div>
         </div>
-
 
         
 
         <aside>
             <div class="calculator">
-                <input type="text" id="display" readonly>
+                <input type="text" id="display" >
                 <div class="buttons">
                     <button onclick="appendOperator('%')">%</button>
                     <button onclick="clearDisplay()">C</button>
@@ -97,7 +105,6 @@
                     <button onclick="equal()">=</button>
                     <br>                    
                 </div>
-            </div>
 
             <ul>
                 <li><a href="Geometria.html" title="Geometria">Геометрія</a></li>
@@ -109,8 +116,6 @@
                 <li><a href="Find_S.html" title="Знаходження площі трикутника">Знаходження площі трикутника</a></li>
                 <li><a href="Find_S_ quadrangle.html" title="Знаходження площі читирикутника">Знаходження площі читирикутника</a></li>
                 <li><a href="Find_S_ quadrangle.html" title="Знаходження площі Кола">Знаходження площі Кола</a></li>
-
-
             </ul>
             <div class="widget_1">
                 <!-- weather widget start --><a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
@@ -128,7 +133,7 @@
     <footer>
 
     </footer>
-    <script src="java_Geo_Vec_length.js"></script>
+    <script src="Find_S_Kolo.js"></script>
 </body>
 </html>
 </body>

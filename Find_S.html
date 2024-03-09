@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style_Vec_length.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style_Vec_length.css">
+    <title>Знаходження площі трикутника</title>
+    <link rel="stylesheet" href="Find_S.css">
 </head>
 <body>
     <header>
@@ -31,31 +22,69 @@
 
 
     <main>
-    
-        <div class="Vector_length">
-            <h2>Знаходження довжини вектора</h2>
-            <form id="vector-form">
-                <label for="x">x:</label>
-                <input type="text" id="x" placeholder="x">
-                <label for="y">y:</label>
-                <input type="text" id="y" placeholder="y">
-                <label for="z" id="zLabel" class="hidden">z:</label>
-                <input type="text" id="z" class="hidden" placeholder="z">
-                <select id="dimension" onchange="toggleZInput()">
-                    <option value="2">Дві координати</option>
-                    <option value="3">Три координати</option>
-                </select>
-                <button type="button" onclick="calculateVectorLength()">Розрахувати</button>
-            </form>
+        <div class="container">
+            <h2>Обчислення площі трикутника</h2>
+        
+            <h3>Спосіб 1: За довжиною основи та висоти</h3>
+            <input type="number" id="base1" placeholder="Довжина основи">
+            <input type="number" id="height1" placeholder="Висота">
+            <button onclick="calculateArea(1)">Обчислити</button>
+        
+            <h3>Спосіб 2: За довжинами сторін</h3>
+            <input type="number" id="sideA2" placeholder="Сторона A">
+            <input type="number" id="sideB2" placeholder="Сторона B">
+            <input type="number" id="sideC2" placeholder="Сторона C">
+            <button onclick="calculateArea(2)">Обчислити</button>
+        
+            <!-- Додані інші способи введення даних -->
+        
+            <h3>Спосіб 3: За довжиною сторони та прилеглого кута</h3>
+            <input type="number" id="side3" placeholder="Довжина сторони">
+            <input type="number" id="angle3" placeholder="Прилеглий кут">
+            <button onclick="calculateArea(3)">Обчислити</button>
+        
+            <h3>Спосіб 4: За довжиною сторони та висоти, опущеної на неї</h3>
+            <input type="number" id="side4" placeholder="Довжина сторони">
+            <input type="number" id="height4" placeholder="Висота">
+            <button onclick="calculateArea(4)">Обчислити</button>
+        
+            <h3>Спосіб 5: За довжиною двох сторін та між ними кута</h3>
+            <input type="number" id="sideA5" placeholder="Сторона A">
+            <input type="number" id="sideB5" placeholder="Сторона B">
+            <input type="number" id="angle5" placeholder="Кут між сторонами">
+            <button onclick="calculateArea(5)">Обчислити</button>
+
+            <h3>Спосіб 6: За радіусом вписаного кола і пів периметра</h3>
+            <input type="number" id="sider6" placeholder="r вписаного кола">
+            <input type="number" id="sidep6" placeholder="p пів периметр">
+            <button onclick="calculateArea(6)">Обчислити</button>
+        
+            <h3>Спосіб 7: За довжиною двох сторін та кута між ними</h3>
+            <input type="number" id="sideA7" placeholder="Сторона A">
+            <input type="number" id="sideB7" placeholder="Сторона B">
+            <input type="number" id="angle7" placeholder="Кут між сторонами">
+            <button onclick="calculateArea(7)">Обчислити</button>
+        
+            <h3>Спосіб 8: За трьома сторона і радіусом описаного кола</h3>
+            <input type="number" id="sideA8" placeholder="Сторона A">
+            <input type="number" id="sideB8" placeholder="Сторона B">
+            <input type="number" id="sideC8" placeholder="Сторона C">
+            <input type="number" id="radius8" placeholder="R описаного кола">
+            <button onclick="calculateArea(8)">Обчислити</button>
+        
+            <h3>Спосіб 9: За радіусом та центральним кутом кола</h3>
+            <input type="number" id="radius9" placeholder="Радіус кола">
+            <input type="number" id="angle9" placeholder="Центральний кут (в градусах)">
+            <button onclick="calculateArea(9)">Обчислити</button>
+        
             <div id="result"></div>
         </div>
-
 
         
 
         <aside>
             <div class="calculator">
-                <input type="text" id="display" readonly>
+                <input type="text" id="display" >
                 <div class="buttons">
                     <button onclick="appendOperator('%')">%</button>
                     <button onclick="clearDisplay()">C</button>
@@ -97,7 +126,6 @@
                     <button onclick="equal()">=</button>
                     <br>                    
                 </div>
-            </div>
 
             <ul>
                 <li><a href="Geometria.html" title="Geometria">Геометрія</a></li>
@@ -107,10 +135,6 @@
                 <li><a href="Scalar_dobutok_vektoriv.html" title="Скалярний">Скалярний добуток векторів</a></li>
                 <li><a href="Kyt_and_cos.html" title="Кут та косинус кута між векторами">Кут та косинус кута між векторами</a></li>
                 <li><a href="Find_S.html" title="Знаходження площі трикутника">Знаходження площі трикутника</a></li>
-                <li><a href="Find_S_ quadrangle.html" title="Знаходження площі читирикутника">Знаходження площі читирикутника</a></li>
-                <li><a href="Find_S_ quadrangle.html" title="Знаходження площі Кола">Знаходження площі Кола</a></li>
-
-
             </ul>
             <div class="widget_1">
                 <!-- weather widget start --><a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
@@ -128,7 +152,7 @@
     <footer>
 
     </footer>
-    <script src="java_Geo_Vec_length.js"></script>
+    <script src="Find_S.js"></script>
 </body>
 </html>
 </body>

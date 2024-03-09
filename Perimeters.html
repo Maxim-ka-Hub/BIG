@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style_Vec_length.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style_Vec_length.css">
+    <title>Знаходження площі трикутника</title>
+    <link rel="stylesheet" href="Perimeters.css">
 </head>
 <body>
     <header>
@@ -31,31 +22,42 @@
 
 
     <main>
-    
-        <div class="Vector_length">
-            <h2>Знаходження довжини вектора</h2>
-            <form id="vector-form">
-                <label for="x">x:</label>
-                <input type="text" id="x" placeholder="x">
-                <label for="y">y:</label>
-                <input type="text" id="y" placeholder="y">
-                <label for="z" id="zLabel" class="hidden">z:</label>
-                <input type="text" id="z" class="hidden" placeholder="z">
-                <select id="dimension" onchange="toggleZInput()">
-                    <option value="2">Дві координати</option>
-                    <option value="3">Три координати</option>
-                </select>
-                <button type="button" onclick="calculateVectorLength()">Розрахувати</button>
-            </form>
+        <div class="container">
+            <h2>Калькулятор Переметрів</h2>
+            <label for="shape">Виберіть фігуру:</label>
+
+            <select id="shape" onchange="toggleInputs()">
+                <option value="square">Квадрат</option>
+                <option value="rectangle">Прямокутник</option>
+                <option value="parallelogram">Паралелограм</option>
+                <option value="rhombus">Ромб</option>
+                <option value="trapezoid">Трапеція</option>
+                <option value="Kolo">Коло</option>
+            </select>
+
+            <div id="input-fields">
+                <label for="side1">Сторона 1:</label>
+                <input type="number" id="side1">
+                <label for="side2">Сторона 2:</label>
+                <input type="number" id="side2">
+                <label for="side3">Сторона 3:</label>
+                <input type="number" id="side3">
+                <label for="side4">Сторона 4:</label>
+                <input type="number" id="side4">
+
+                <label for="r">Радіус</label>
+                <input type="number" id="r">
+            </div>
+
+            <button onclick="calculateArea()">Обчислити</button>
             <div id="result"></div>
         </div>
-
 
         
 
         <aside>
             <div class="calculator">
-                <input type="text" id="display" readonly>
+                <input type="text" id="display" >
                 <div class="buttons">
                     <button onclick="appendOperator('%')">%</button>
                     <button onclick="clearDisplay()">C</button>
@@ -97,7 +99,6 @@
                     <button onclick="equal()">=</button>
                     <br>                    
                 </div>
-            </div>
 
             <ul>
                 <li><a href="Geometria.html" title="Geometria">Геометрія</a></li>
@@ -109,7 +110,6 @@
                 <li><a href="Find_S.html" title="Знаходження площі трикутника">Знаходження площі трикутника</a></li>
                 <li><a href="Find_S_ quadrangle.html" title="Знаходження площі читирикутника">Знаходження площі читирикутника</a></li>
                 <li><a href="Find_S_ quadrangle.html" title="Знаходження площі Кола">Знаходження площі Кола</a></li>
-
 
             </ul>
             <div class="widget_1">
@@ -128,7 +128,7 @@
     <footer>
 
     </footer>
-    <script src="java_Geo_Vec_length.js"></script>
+    <script src="Perimeters.js"></script>
 </body>
 </html>
 </body>
