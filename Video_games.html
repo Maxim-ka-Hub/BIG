@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="Video_games.css">
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div class="board" id="board">
+        <div class="row">
+            <div class="cell" onclick="playerTurn(0, 0)"></div>
+            <div class="cell" onclick="playerTurn(0, 1)"></div>
+            <div class="cell" onclick="playerTurn(0, 2)"></div>
+        </div>
+        <div class="row">
+            <div class="cell" onclick="playerTurn(1, 0)"></div>
+            <div class="cell" onclick="playerTurn(1, 1)"></div>
+            <div class="cell" onclick="playerTurn(1, 2)"></div>
+        </div>
+        <div class="row">
+            <div class="cell" onclick="playerTurn(2, 0)"></div>
+            <div class="cell" onclick="playerTurn(2, 1)"></div>
+            <div class="cell" onclick="playerTurn(2, 2)"></div>
+        </div>
+    </div>
+    <p id="turn">Your Turn (X)</p>
+    <button onclick="resetBoard()">Reset Board</button>
+
+    <script src="Video_games.js"></script>
+</body>
+</html>
+
+
+

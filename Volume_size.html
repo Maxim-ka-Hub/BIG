@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Знаходження площі трикутника</title>
-    <link rel="stylesheet" href="Find_S_ quadrangle.css">
+    <link rel="stylesheet" href="Volume_size.css">
 </head>
 <body>
     <header>
@@ -23,36 +23,36 @@
 
     <main>
         <div class="container">
-            <h2>Обчислення площі трикутника</h2>
-        
-            <h3>Спосіб 1: Площа квадрата</h3>
-            <input type="number" id="base1" placeholder="Сторона квадрата">
-            <button onclick="calculateArea(1)">Обчислити</button>
-        
-            <h3>Спосіб 2: Площа прямокутника</h3>
-            <input type="number" id="sideA2" placeholder="Сторона A">
-            <input type="number" id="sideB2" placeholder="Сторона B">
-            <button onclick="calculateArea(2)">Обчислити</button>
-        
-            <!-- Додані інші способи введення даних -->
-        
-            <h3>Спосіб 3: Площа паралелограма</h3>
-            <input type="number" id="side3" placeholder="Висота">
-            <input type="number" id="angle3" placeholder="Основа">
-            <button onclick="calculateArea(3)">Обчислити</button>
-        
-            <h3>Спосіб 4: Площа ромба</h3>
-            <input type="number" id="side4" placeholder="Діагональ 1">
-            <input type="number" id="height4" placeholder="Діагональ 2">
-            <button onclick="calculateArea(4)">Обчислити</button>
-        
-            <h3>Спосіб 5: Площа трапеції</h3>
-            <input type="number" id="sideA5" placeholder="Основа">
-            <input type="number" id="sideB5" placeholder="Висота">
-            <button onclick="calculateArea(5)">Обчислити</button>
-        
-            <div id="result"></div>
-        </div>
+    <h2>Обчислення об'ємів фігур</h2>
+    <label for="shape">Виберіть фігуру:</label>
+    <select id="shape" onchange="toggleInputs()">
+        <option value="cube">Куб</option>
+        <option value="prism">Призма</option>
+        <option value="rectangularPrism">Прямокутний паралелепіпед</option>
+        <option value="parallelepiped">Паралелепіпед</option>
+        <option value="pyramid">Піраміда</option>
+        <option value="tetrahedron">Правильний тетраедр</option>
+        <option value="sphere">Шар</option>
+        <option value="cylinder">Циліндр</option>
+        <option value="cone">Конус</option>
+    </select>
+    <div id="input-fields">
+        <label for="side">Довжина сторони:</label>
+        <input type="number" id="side">
+        <label for="length">Довжина:</label>
+        <input type="number" id="length">
+        <label for="width">Ширина:</label>
+        <input type="number" id="width">
+        <label for="height">Висота:</label>
+        <input type="number" id="height">
+        <label for="base">Площа основи:</label>
+        <input type="number" id="base">
+        <label for="radius">Радіус:</label>
+        <input type="number" id="radius">
+    </div>
+    <button onclick="calculate()">Обчислити</button>
+    <div id="result"></div>
+</div>
 
         
 
@@ -115,6 +115,7 @@
                 <li><a href="Volume_size.html" title="Калькулятор Об'єму">Калькулятор Об'єму</a></li>
                 <li><a href="Trigonometria.html" title="Тригонометрія">Тригонометрія</a></li>
 
+
             </ul>
             <div class="widget_1">
                 <!-- weather widget start --><a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
@@ -132,7 +133,7 @@
     <footer>
 
     </footer>
-    <script src="Find_S_ quadrangle.js"></script>
+    <script src="Volume_size.js"></script>
 </body>
 </html>
 </body>
