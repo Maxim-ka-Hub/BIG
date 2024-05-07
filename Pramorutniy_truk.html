@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додавання і віднімання векторів</title>
+    <link rel="stylesheet" href="Pramorutniy_truk.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><img src="bird-colorful-logo-gradient-vector_343694-1365.avif" alt="111"></div>
+            <ul class="ul_menu">
+                <li><a href="index.html" title="Алгебра">Головна</a></li>
+                <li><a href="Algebra.html" title="Алгебра">Алгебра</a></li>
+                <li><a href="Geometria.html" title="Геометрія">Геометрія</a></li>
+                <li><a href="Fizika.html" title="Фізика">Фізика</a></li>
+                <li><a href="Info.html" title="Інфо">Інфо</a></li>
+                <li><a href="Video_games.html" title="Відео Ігри">Відео Ігри</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container_main">
+            <div class="cont">
+                <img src="tr-p12.png" alt="pram_truk">
+
+                <label for="a"></label>
+                <input type="text" id="a">
+
+                <label for="b"></label>
+                <input type="text" id="b">
+
+                <label for="c"></label>
+                <input type="text" id="c">
+
+                <label for="alpha"></label>
+                <input type="text" id="alpha">
+
+                <label for="beta"></label>
+                <input type="text" id="beta">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <h2>Результат пошуку</h2>
+
+                <img class="empty_tr" src="pram_truk.png" alt="tr-empty">
+
+                <div id="a-res"></div>
+                <div id="b-res"></div>
+                <div id="c-res"></div>
+                <div id="alpha-res"></div>
+                <div id="beta-res"></div>
+
+
+                <button onclick="Find()" id="btn_find">Знайти</button>
+
+
+                <div id="result"></div>
+            </div>
+
+            
+        </div>
+        
+        
+        
+
+
+        
+
+        <aside>
+            <div class="calculator">
+                <input type="text" id="display" readonly>
+                <div class="buttons">
+                    <button onclick="appendOperator('%')">%</button>
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="deleteLast()">↩</button>
+
+                    <br>
+
+                    <button onclick="OneDelX()">1/x</button>
+                    <button onclick="x_square()">x²</button>
+                    <button onclick="sqrt()">√x</button>
+                    <button onclick="appendOperator('/')">/</button>
+
+                    <br>
+
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="appendOperator('*')">*</button>
+
+                    <br>
+
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('-')">-</button>
+
+                    <br>
+
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendOperator('+')">+</button>
+
+                    <br>
+                    
+                    <button onclick="PlusMinus()">+/-</button>
+                    <button onclick="appendNumber('0')">0</button>
+                    <button onclick="appendNumber('.')">.</button>
+                    <button onclick="equal()">=</button>
+                    <br>                    
+                </div>
+            </div>
+
+            <ul>
+                <li><a href="Geometria.html" title="Geometria">Геометрія</a></li>
+                <li><a href="Plus_minus.html" title="Plus minus">Додавання та віднімання</a></li>
+                <li><a href="Geo_Vec_length.html" title="Geo_Vec_length">Довжина вектора</a></li>
+                <li><a href="Mnoj_vek_na_num.html" title="Mnoj_vek_na_num">Множення вектора на число</a></li>
+                <li><a href="Scalar_dobutok_vektoriv.html" title="Скалярний">Скалярний добуток векторів</a></li>
+                <li><a href="Kyt_and_cos.html" title="Кут та косинус кута між векторами">Кут та косинус кута між векторами</a></li>
+                <li><a href="Find_S.html" title="Знаходження площі трикутника">Знаходження площі трикутника</a></li>
+                <li><a href="Find_S_ quadrangle.html" title="Знаходження площі читирикутника">Знаходження площі читирикутника</a></li>
+                <li><a href="Find_S_ quadrangle.html" title="Знаходження площі Кола">Знаходження площі Кола</a></li>
+                <li><a href="Perimeters.html" title="Калькулятор Переметрів">Калькулятор Переметрів</a></li>
+                <li><a href="Volume_size.html" title="Калькулятор Об'єму">Калькулятор Об'єму</a></li>
+                <li><a href="Trigonometria.html" title="Тригонометрія">Тригонометрія</a></li>
+                <li><a href="Pramorutniy_truk.html" title="обчислення прямокутного трикутника">обчислення прямокутного трикутника</a></li>
+
+
+            </ul>
+            <div class="widget_1">
+                <!-- weather widget start --><a target="_blank" href="https://hotelmix.com.ua/weather/kyiv-18881"><img src="https://w.bookcdn.com/weather/picture/32_18881_1_29_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=&domid=966&anc_id=85018"  alt="booked.net"/></a><!-- weather widget end -->
+            </div>
+
+            <div class="widget_2">
+                <iframe src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&bgcolor=%23ffffff&ctz=UTC&src=ZG9uYXRvci5tYW44QGdtYWlsLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=dWsudWtyYWluaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="237" height="300" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </aside>
+
+        
+    </main>
+
+
+    <footer>
+
+    </footer>
+    <script src="Pramorutniy_truk.js"></script>
+</body>
+</html>
+</body>
+</html>

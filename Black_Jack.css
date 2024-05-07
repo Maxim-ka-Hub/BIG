@@ -1,0 +1,331 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('blackjack-table.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div{
+    color: white;
+}
+
+.hand {
+    margin-top: 20px;
+}
+
+.hand img {
+    height: 150px;
+    margin: 0 5px;
+}
+
+#deal-button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 900px;
+  }
+  
+#deal-button:before, #deal-button:after {
+content: '';
+position: absolute;
+left: -2px;
+top: -2px;
+border-radius: 10px;
+background: linear-gradient(45deg, 
+var(--ch-black), var(--eer-black),
+var(--night-rider), var(--ch-white), var(--night-rider), 
+    var(--eer-black), var(--ch-black),var(--ch-black));
+background-size: 400%;
+width: calc(100% + 4px);
+height: calc(100% + 4px);
+z-index: -1;
+animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+0% {
+    background-position: 0 0;
+}
+
+50% {
+    background-position: 400% 0;
+}
+
+100% {
+    background-position: 0 0;
+}
+}
+
+#deal-button:after {
+filter: blur(50px);
+}
+
+
+
+
+
+
+#hit-button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 900px;
+  }
+  
+#hit-button:before, #hit-button:after {
+content: '';
+position: absolute;
+left: -2px;
+top: -2px;
+border-radius: 10px;
+background: linear-gradient(45deg, 
+var(--ch-black), var(--eer-black),
+var(--night-rider), var(--ch-white), var(--night-rider), 
+    var(--eer-black), var(--ch-black),var(--ch-black));
+background-size: 400%;
+width: calc(100% + 4px);
+height: calc(100% + 4px);
+z-index: -1;
+animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+0% {
+    background-position: 0 0;
+}
+
+50% {
+    background-position: 400% 0;
+}
+
+100% {
+    background-position: 0 0;
+}
+}
+
+hit-button:after {
+filter: blur(50px);
+}
+
+
+
+#stand-button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 900px;
+  }
+  
+#stand-button:before, #stand-button:after {
+content: '';
+position: absolute;
+left: -2px;
+top: -2px;
+border-radius: 10px;
+background: linear-gradient(45deg, 
+var(--ch-black), var(--eer-black),
+var(--night-rider), var(--ch-white), var(--night-rider), 
+    var(--eer-black), var(--ch-black),var(--ch-black));
+background-size: 400%;
+width: calc(100% + 4px);
+height: calc(100% + 4px);
+z-index: -1;
+animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+0% {
+    background-position: 0 0;
+}
+
+50% {
+    background-position: 400% 0;
+}
+
+100% {
+    background-position: 0 0;
+}
+}
+
+stand-button:after {
+filter: blur(50px);
+}
+  
+  
+
+
+
+#deal-button {
+    margin-top: 20px;
+}
+
+
+#hit-button{
+    margin-top: 20px;
+    position: absolute;
+    left: 800px;
+}
+
+
+#stand-button{
+    margin-top: 20px;
+    position: absolute;
+    left: 1000px;
+}
+
+#status {
+    font-weight: bolder;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+#dealer-hand{
+    margin-top: 80px;
+    
+}
+
+#player-hand{
+    margin-top: 180px;
+}
+
+#player-points,
+#dealer-points {
+    margin-top: 60px;
+    font-weight: bold;
+}
+
+#dealer-points {
+    position: absolute;
+    top: 300px;
+    left: 48%;
+}
+
+#player-points {
+    position: absolute;
+    top: 430px;
+    left: 48%;
+}
+
+#bet{
+    width: 55px;
+    position: absolute;
+    top: 420px;
+    left: 940px;
+}
+
+#bet {
+    position: absolute;
+    left: 50%;
+    max-width: 220px;
+    height: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+  }
+  
+#bet:hover {
+border: 2px solid lightgrey;
+box-shadow: 0px 0px 20px -17px;
+}
+
+#bet:active {
+transform: scale(0.95);
+}
+
+#bet:focus {
+border: 2px solid grey;
+}
+
+
+.all_time_dep{
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    left: 1550px;
+}
+
+#time_dep{
+    font-size: 30px;
+    position: absolute;
+    top: 22px;
+    left: 1730px;
+}
+
+
+#bank {
+    position: absolute;
+    font-size: 40px;
+    top: 10px;
+    left: 50px;
+    font-weight: bold;
+}
+
+li{
+    position: absolute;
+    left:  30px;
+    top: 100px;
+}
