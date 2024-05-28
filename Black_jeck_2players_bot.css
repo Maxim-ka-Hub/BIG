@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.hand {
+    margin-top: 20px;
+}
+
+.hand img {
+    height: 150px;
+    margin: 0 5px;
+}
+
+#buttons {
+    margin-top: 20px;
+}
+
+#status {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#player-points,
+#dealer-points {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#bank {
+    margin-top: 10px;
+    font-weight: bold;
+}

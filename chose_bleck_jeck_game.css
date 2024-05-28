@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('blackjack-table.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+button{
+    border-radius: 5%;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(109, 0, 149);
+}
+
+
+#play_player_v_bot{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+}
+
+#play_player_v_player{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+
+#play_player_v_player_v_bot{
+    position: absolute;
+    top: 40%;
+    left: 65%;
+}

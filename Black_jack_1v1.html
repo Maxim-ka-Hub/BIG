@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Black_jack_1v1.css">
+</head>
+<body>
+    <!-- <audio id="background-music" loop>
+        <source src="background_music.mp3" type="audio/mpeg">
+    </audio> -->
+
+    <audio id="win-sound">
+        <source src="dollar-sound-effect.mp3" type="audio/mpeg">
+    </audio>
+      
+      <audio id="card-Deal-Sound">
+        <source src="card_Deal_Sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <li><a href="index.html" title="main">Головна сторінка</a></li>
+
+
+
+
+
+    <div id="game">
+        <h1>Блекджек</h1>
+        
+        <div id="status">Блекджек 1 v 1.  Введіть вашу ставку та натисніть "Роздати".</div>
+        <div id="buttons">
+            <input type="number" id="bet" placeholder="ставка">
+
+            <div class="all_time_dep">Банк стола:</div>
+            <div id="time_dep"></div>
+
+            <button id="deal-button">Роздати</button>
+
+            <button id="first_player-hit_button">Взяти 1</button>
+            <button id="second_player-hit_button">Взяти 2</button>
+
+            <button id="first_player-stand_button">Зупинитися 1</button>
+            <button id="second_player-stand_button">Зупинитися 2</button>
+        </div>
+
+        <div id="first_player-hand" class="first_player-hand"></div>
+        <div id="second_player-hand" class="second_player-hand"></div>
+        
+        
+        <div id="first_player-points">Очки Гравця 1: <span id="first_player-points-value">0</span></div>
+        <div id="second_player-points">Очки Гравця 2: <span id="second_player-points-value">0</span></div>
+        <div id="first_player-bank">Банк Гравця 1: <span id="first_player-bank-value">100</span></div>
+        <div id="second_player-bank">Банк Гравця 2: <span id="second_player-bank-value">100</span></div>
+        
+    </div>
+    <script src="Black_jack_1v1.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('blackjack-table.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div{
+    color: white;
+}
+
+.hand {
+    margin-top: 20px;
+}
+
+.hand img {
+    height: 250px;
+    margin: 0 5px;
+}
+
+#deal-button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 240px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 45%;
+    margin-top: 20px;  
+  }
+  
+#deal-button:before, #deal-button:after {
+content: '';
+position: absolute;
+left: -2px;
+top: -2px;
+border-radius: 10px;
+background: linear-gradient(45deg, 
+var(--ch-black), var(--eer-black),
+var(--night-rider), var(--ch-white), var(--night-rider), 
+    var(--eer-black), var(--ch-black),var(--ch-black));
+background-size: 400%;
+width: calc(100% + 4px);
+height: calc(100% + 4px);
+z-index: -1;
+animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+0% {
+    background-position: 0 0;
+}
+
+50% {
+    background-position: 400% 0;
+}
+
+100% {
+    background-position: 0 0;
+}
+}
+
+#deal-button:after {
+    filter: blur(50px);
+}
+
+
+
+
+
+
+#first_player-hit_button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 240px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 5%;
+    top: 50%;
+}
+
+#second_player-hit_button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 240px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 80%;
+    top: 50%;
+}
+  
+#first_player-hit_button:before, #first_player-hit_button:after, #second_player-hit_button:before, #second_player-hit_button:after {
+content: '';
+position: absolute;
+left: -2px;
+top: -2px;
+border-radius: 10px;
+background: linear-gradient(45deg, 
+var(--ch-black), var(--eer-black),
+var(--night-rider), var(--ch-white), var(--night-rider), 
+    var(--eer-black), var(--ch-black),var(--ch-black));
+background-size: 400%;
+width: calc(100% + 4px);
+height: calc(100% + 4px);
+z-index: -1;
+animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+0% {
+    background-position: 0 0;
+}
+
+50% {
+    background-position: 400% 0;
+}
+
+100% {
+    background-position: 0 0;
+}
+}
+
+hit-button:after {
+filter: blur(50px);
+}
+
+
+
+#first_player-stand_button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 240px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 5%;
+    top: 40%;
+  }
+
+#second_player-stand_button {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    border-radius: 8px;
+    width: 240px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 30px;
+    transition-duration: .2s;
+    background-color: var(--ch-black);
+    position: absolute;
+    left: 80%;
+    top: 40%;
+  }
+  
+#first_player-stand_button:before, #second_player-stand_button:before, #first_player-stand_button:after, #second_player-stand_button:after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, 
+    var(--ch-black), var(--eer-black),
+    var(--night-rider), var(--ch-white), var(--night-rider), 
+        var(--eer-black), var(--ch-black),var(--ch-black));
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+0% {
+    background-position: 0 0;
+}
+
+50% {
+    background-position: 400% 0;
+}
+
+100% {
+    background-position: 0 0;
+}
+}
+
+
+#status {
+    font-weight: bolder;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+#dealer-hand{
+    margin-top: 80px;
+    
+}
+
+#player-hand{
+    margin-top: 180px;
+}
+
+
+
+#second_player-points {
+    position: absolute;
+    top: 70%;
+    left: 60%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#first_player-points {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ 
+
+#bet {
+    width: 75px;
+    position: absolute;
+    top: 650px;
+    left: 47%;
+    max-width: 220px;
+    height: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+  }
+  
+#bet:hover {
+border: 2px solid lightgrey;
+box-shadow: 0px 0px 20px -17px;
+}
+
+#bet:active {
+transform: scale(0.95);
+}
+
+#bet:focus {
+border: 2px solid grey;
+}
+
+
+.all_time_dep{
+    font-size: 30px;
+    position: absolute;
+    top: 15%;
+    left: 65%;
+}
+
+#time_dep{
+    font-size: 30px;
+    position: absolute;
+    top: 15%;
+    left: 75%;
+}
+
+
+#first_player-bank {
+    position: absolute;
+    font-size: 25px;
+    top: 75%;
+    left: 10%;
+    font-weight: bold;
+}
+#first_player-bank-value{
+    font-size: 30px;
+}
+
+
+#second_player-bank {
+    position: absolute;
+    font-size: 25px;
+    top: 75%;
+    left: 80%;
+    font-weight: bold;
+}
+#second_player-bank-value{
+    font-size: 30px;
+}
+
+
+li{
+    position: absolute;
+    left:  30px;
+    top: 100px;
+}
+
+.first_player-hand{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    max-width: 600px;
+}
+
+.first_player-hand img, .second_player-hand img{
+    height: 170px;
+    margin-left: 5px; 
+}
+
+.second_player-hand{
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    max-width: 600px;
+}
