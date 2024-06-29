@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker</title>
+    <link rel="stylesheet" href="Poker_1v1.css">
+</head>
+<body>
+    <audio id="win-sound">
+        <source src="dollar-sound-effect.mp3" type="audio/mpeg">
+    </audio>
+      
+      <audio id="card-Deal-Sound">
+        <source src="card_Deal_Sound.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <div id="game">
+        
+        <div id="status">Введіть вашу ставку та натисніть "Роздати".</div>
+        <div id="buttons">
+
+            <div class="all_time_dep">Банк:</div>
+            <div id="bank"></div>
+
+            <button id="deal-button">Роздати</button>
+
+            <div class="buttons_color_f_c_b">
+                <button id="first_player-fold_button">Fold</button>
+                <button id="second_player-fold_button">Fold</button>
+                <!-- <button id="third_player-fold_button">Fold</button>
+                <button id="fourth_player-fold_button">Fold</button>
+                <button id="fifth_player-fold_button">Fold</button> -->
+
+                <button id="first_player-check_button">Check</button>
+                <button id="second_player-check_button">Check</button>
+                <!-- <button id="third_player-check_button">Check</button>
+                <button id="fourth_player-check_button">Check</button>
+                <button id="fifth_player-check_button">Check</button> -->
+
+                <button id="first_player-bet_button">Bet</button>
+                <button id="second_player-bet_button">Bet</button>
+                <!-- <button id="third_player-bet_button">Bet</button>
+                <button id="fourth_player-bet_button">Bet</button>
+                <button id="fifth_player-bet_button">Bet</button> -->
+
+                <button id="bet_minimum">Min</button>
+                <button id="bet_half">1/2</button>
+                <button id="bet_bank">Bank</button>
+                <button id="bet_max">Max</button>
+
+                <button id="bet_minimum_2">Min</button>
+                <button id="bet_half_2">1/2</button>
+                <button id="bet_bank_2">Bank</button>
+                <button id="bet_max_2">Max</button>
+            </div>
+        </div>
+
+
+        <div class="bet_block"><span id="betAmount">0</span></div>
+        <div class="bet_block_2"><span id="betAmount_2">0</span></div>
+        <!-- <div class="bet_block_3"><span id="betAmount">0</span></div>
+        <div class="bet_block_4"><span id="betAmount">0</span></div>
+        <div class="bet_block_5"><span id="betAmount">0</span></div> -->
+
+
+        <div id="first_player-hand" class="first_player-hand"></div>
+        <div id="second_player-hand" class="second_player-hand"></div>
+        <!-- <div id="second_player-hand" class="second_player-hand"></div> -->
+
+        <div id="dealer_flop_cards" class="dealer_flop_cards"></div>
+        <div id="dealer_tern_cards" class="dealer_tern_cards"></div>
+        <div id="dealer_river_cards" class="dealer_river_cards"></div>
+
+        
+        <div class="block_first_plaler">
+            <div id="player-bank">Player 1 <br> <hr> <span id="color"><span id="first_player-bank-value"></span> $</span></div>
+        </div>
+
+        <div class="block_second_plaler">
+            <div id="player-bank">Player 2 <br> <hr> <span id="color"><span id="second_player-bank-value"></span> $</span></div>
+        </div>
+
+        <div class="block_third_plaler">
+            <div id="player-bank">Player 3 <br> <hr> <span id="color"><span id="third_player-bank-value">100</span> $</span></div>
+        </div>
+
+        <div class="block_fourth_plaler">
+            <div id="player-bank">Player 4 <br> <hr> <span id="color"><span id="fourth_player-bank-value">100</span> $</span></div>
+        </div>
+
+        <div class="block_fifth_plaler">
+            <div id="player-bank">Player 5 <br> <hr> <span id="color"><span id="fifth_player-bank-value">100</span> $</span></div>
+        </div>
+
+
+
+        <div class="container">
+            <input type="range" id="betSlider" min="0" max="1000" step="1" value="0">
+        </div>
+
+        <div class="container_2">
+            <input type="range" id="betSlider_2" min="0" max="1000" step="1" value="0">
+        </div>
+        
+        
+
+    <script src="Poker_1v1.js"></script>
+</body>
+</html>

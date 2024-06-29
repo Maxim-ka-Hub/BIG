@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const second_playerHand = document.getElementById('second_player-hand');
     const betInput = document.getElementById('bet');
     let Time_dep = document.getElementById('time_dep');
-    let background_music = document.getElementById('background-music');
     let win_sound = document.getElementById('win-sound');
     let card_Deal_Sound = document.getElementById('card-Deal-Sound');
 
@@ -26,14 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let check_stop_first_player = false;                                                                                                   
     let check_stop_second_player = false; 
-
-
-    function playBackgroundMusic() {
-        background_music.play();
-        document.removeEventListener('click', playBackgroundMusic);
-    }
-    document.addEventListener('click', playBackgroundMusic);
-
 
     dealButton.addEventListener('click', deal);
     hitButton_1.addEventListener('click', first_hit);
@@ -71,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         check_stop_second_player = false;
-        check_stop_first_player = false;
+        check_stop_first_player = false;        
 
         first_playerbank -= bet;
-        second_playerbank -= bet;
+        second_playerbank -= bet;   
         updateBank();
 
         Time_dep.value = betInput.value * 2;

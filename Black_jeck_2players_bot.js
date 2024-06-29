@@ -1,48 +1,40 @@
 document.addEventListener('DOMContentLoaded', function () {
     const status = document.getElementById('status');
-    const dealButtonP1 = document.getElementById('deal-button-p1');
-    const hitButtonP1 = document.getElementById('hit-button-p1');
-    const standButtonP1 = document.getElementById('stand-button-p1');
-    const dealButtonP2 = document.getElementById('deal-button-p2');
-    const hitButtonP2 = document.getElementById('hit-button-p2');
-    const standButtonP2 = document.getElementById('stand-button-p2');
-    const player1Hand = document.getElementById('player1-hand');
-    const player2Hand = document.getElementById('player2-hand');
-    const dealerHand = document.getElementById('dealer-hand');
+    const dealButton = document.getElementById('deal-button');
+    const hitButton_1 = document.getElementById('first_player-hit_button');
+    const hitButton_2 = document.getElementById('second_player-hit_button');
+    const standButton_1 = document.getElementById('first_player-stand_button');
+    const stand_dealer = document.getElementById('second_player-stand_button');
+    const first_playerHand = document.getElementById('first_player-hand');
+    const second_playerHand = document.getElementById('second_player-hand');
+    const dealerHand = document.getElementById('dealer_hand');
     const betInput = document.getElementById('bet');
-    
-    const backgroundMusic = document.getElementById('background-music');
-	backgroundMusic.volume = 0.1; // Встановлення гучності фонової музики на половину (50%)
-    const winSound = document.getElementById('win-sound');
-    const loseSound = document.getElementById('lose-sound');
-    const tieSound = document.getElementById('tie-sound');
-	const cardDealSound = document.getElementById('card-Deal-Sound');
+    let Time_dep = document.getElementById('time_dep');
+    let win_sound = document.getElementById('win-sound');
+    let card_Deal_Sound = document.getElementById('card-Deal-Sound');
 	
     
     let deck = [];
-    let player1HandValue = 0;
-    let player2HandValue = 0;
+    let first_playerHandValue = 0;
+    let second_playerHandValue = 0;
     let dealerHandValue = 0;
-    let player1Cards = [];
-    let player2Cards = [];
+    let first_playerCards = [];
+    let second_playerCards = [];
     let dealerCards = [];
-    let bank = 100;
-    let gameActiveP1 = false;
-    let gameActiveP2 = false;
-	
-	//  Включення фонової музики після завантаження файлу або після першого кліку
-    function playBackgroundMusic() {
-        backgroundMusic.play();
-        document.removeEventListener('click', playBackgroundMusic);
-    }
-    document.addEventListener('click', playBackgroundMusic);
+    let first_playerbank = 100;
+    let second_playerbank = 100;
+    let gameActive_first_player = false;
+    let gameActive_second_player = false;
 
-    dealButtonP1.addEventListener('click', dealPlayer1);
-    hitButtonP1.addEventListener('click', hitPlayer1);
-    standButtonP1.addEventListener('click', standPlayer1);
-    dealButtonP2.addEventListener('click', dealPlayer2);
-    hitButtonP2.addEventListener('click', hitPlayer2);
-    standButtonP2.addEventListener('click', standPlayer2);
+    let check_stop_first_player = false;                                                                                                   
+    let check_stop_second_player = false;
+	
+    dealButton.addEventListener('click', deal);
+    hitButton_1.addEventListener('click', first_hit);
+    hitButton_2.addEventListener('click', second_hit);
+    standButton_1.addEventListener('click', first_stand);
+    standButton_2.addEventListener('click', second_stand);
+    stand_dealer.addEventListener('click', dealer_stand);
 
     function createDeck() {
         const suits = ['♥️', '♦️', '♣️', '♠️'];
@@ -62,59 +54,57 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function dealPlayer1() {
-        if (gameActiveP1) return;
+    function deal() {
+        if (gameActive_first_player || gameActive_second_player) return;
         const bet = parseInt(betInput.value);
-        if (isNaN(bet) || bet <= 0 || bet > bank) {
+        if (isNaN(bet) || bet <= 0 || bet > first_playerbank || bet > second_playerbank) {
+            
             updateStatus('Невірна ставка! Гравець 1, введіть ставку від 1 до вашого банку.');
             return;
         }
+
         
-        bank -= bet;
-        updateBank();
+        check_stop_second_player = false;
+        check_stop_first_player = false; 
+        
+        first_playerbank -= bet;
+        second_playerbank -= bet; 
+        updateBank()      
+        
+
+        Time_dep.value = betInput.value * 2;
+        document.getElementById('time_dep').textContent = Time_dep.value;
         
         createDeck();
         shuffleDeck();
-        player1Hand.innerHTML = '';
-        player2Hand.innerHTML = '';
-        dealerHand.innerHTML = '';
-        player1HandValue = 0;
-        player2HandValue = 0;
-        dealerHandValue = 0;
-        player1Cards = [];
-        player2Cards = [];
-        dealerCards = [];
-        dealCard(player1Hand);
-        dealCard(player2Hand);
-        dealCard(dealerHand);
-        dealCard(player1Hand);
-        dealCard(player2Hand);
-        dealCard(dealerHand);
-        updateStatus('Хід Гравця 1. Оберіть "Взяти" або "Зупинитися".');
-        gameActiveP1 = true;
-        dealButtonP1.style.display = 'none';
-        hitButtonP1.style.display = 'inline-block';
-        standButtonP1.style.display = 'inline-block';
-    }
+        
+        
 
-    function dealPlayer2() {
-        if (gameActiveP2) return;
-        const bet = parseInt(betInput.value);
-        if (isNaN(bet) || bet <= 0 || bet > bank) {
-            updateStatus('Невірна ставка! Гравець 2, введіть ставку від 1 до вашого банку.');
-            return;
-        }
+        first_playerHand.innerHTML = '';
+        second_playerHand.innerHTML = '';
+        dealerHand.innerHTML = '';
         
-        bank -= bet;
-        updateBank();
+        first_playerHandValue = 0;
+        second_playerHandValue = 0;
+        dealerHandValue = 0;
         
-        dealCard(player2Hand);
-        dealCard(player2Hand);
-        updateStatus('Хід Гравця 2. Оберіть "Взяти" або "Зупинитися".');
-        gameActiveP2 = true;
-        dealButtonP2.style.display = 'none';
-        hitButtonP2.style.display = 'inline-block';
-        standButtonP2.style.display = 'inline-block';
+        first_playerCards = [];
+        second_playerCards = [];
+        dealerCards = [];
+        
+        dealCard(first_playerHand);
+        dealCard(second_playerHand);
+        dealCard(dealerHand);
+        dealCard(first_playerHand);
+        dealCard(second_playerHand);
+        dealCard(dealerHand);
+        updateStatus('Гравці обирають послідовність вибору самостійно. Оберіть "Взяти" або "Зупинитися".');
+        gameActive_first_player = true;
+        gameActive_second_player = true;
+        // dealButton.style.display = 'none';
+        // hitButton_1.style.display = 'inline-block';
+        
+        // standButton_1.style.display = 'inline-block';
     }
 
     function dealCard(hand) {
@@ -122,32 +112,34 @@ document.addEventListener('DOMContentLoaded', function () {
         const cardImage = document.createElement('img');
         cardImage.src = `${card.value}${card.suit}.png`;
         hand.appendChild(cardImage);
-        if (hand === player1Hand) {
-            player1Cards.push(card);
-            updatePlayer1HandValue();
-			cardDealSound.play();
-        } else if (hand === player2Hand) {
-            player2Cards.push(card);
-            updatePlayer2HandValue();
-			cardDealSound.play();
+        if (hand === first_playerHand) {
+            first_playerCards.push(card);
+            update_first_playerHandValue();
+			card_Deal_Sound.play();
+
+        } else if (hand === second_playerHand) {
+            second_playerCards.push(card);
+            update_second_playerHandValue();
+			card_Deal_Sound.play();
+            
         } else {
             dealerCards.push(card);
-            updateDealerHandValue();
-			cardDealSound.play();
+            update_DealerHandValue();
+			card_Deal_Sound.play();
         }
     }
 
-    function updatePlayer1HandValue() {
-        player1HandValue = calculateHandValue(player1Cards);
-        document.getElementById('player1-points-value').textContent = player1HandValue;
+    function update_first_playerHandValue() {
+        first_playerHandValue = calculateHandValue(first_playerCards);
+        document.getElementById('first_player-points-value').textContent = first_playerHandValue;
     }
 
-    function updatePlayer2HandValue() {
-        player2HandValue = calculateHandValue(player2Cards);
-        document.getElementById('player2-points-value').textContent = player2HandValue;
+    function update_second_playerHandValue() {
+        second_playerHandValue = calculateHandValue(second_playerCards);
+        document.getElementById('second_player-points-value').textContent = second_playerHandValue;
     }
 
-    function updateDealerHandValue() {
+    function update_DealerHandValue() {
         dealerHandValue = calculateHandValue(dealerCards);
         document.getElementById('dealer-points-value').textContent = dealerHandValue;
     }
@@ -173,74 +165,86 @@ document.addEventListener('DOMContentLoaded', function () {
         return value;
     }
 
-    function hitPlayer1() {
-        if (!gameActiveP1) return;
-        dealCard(player1Hand);
-        if (player1HandValue > 21) {
-            updateStatus('Перебор! Гравець 1, ви програли. Натисніть "Роздати", щоб зіграти ще раз.');
-            gameActiveP1 = false;
-            dealButtonP1.style.display = 'inline-block';
-            hitButtonP1.style.display = 'none';
-            standButtonP1.style.display = 'none';
-            loseSound.play();
+    function first_hit() {
+        if (check_stop_first_player == true) {
+            return
+        }
+        else{
+            if (!check_stop_first_player) return;
+            dealCard(first_playerHand);
+            if (first_playerHandValue > 21) {
+                updateStatus('Перебор! Гравець 1, ви програли. Натисніть "Роздати", щоб зіграти ще раз.');
+                gameActive_first_player = false;
+
+
+                // dealButton.style.display = 'inline-block';
+                // hitButton_1.style.display = 'none';
+                // standButton_1.style.display = 'none';
+            }
         }
     }
 
-    function standPlayer1() {
-        if (!gameActiveP1) return;
-        updateStatus('Хід Гравця 2. Оберіть "Взяти" або "Зупинитися".');
-        gameActiveP1 = false;
-        gameActiveP2 = true;
-        dealButtonP1.style.display = 'none';
-        hitButtonP1.style.display = 'none';
-        standButtonP1.style.display = 'none';
-        dealButtonP2.style.display = 'none';
-        hitButtonP2.style.display = 'inline-block';
-        standButtonP2.style.display = 'inline-block';
-    }
-
-    function hitPlayer2() {
-        if (!gameActiveP2) return;
-        dealCard(player2Hand);
-        if (player2HandValue > 21) {
-            updateStatus('Перебор! Гравець 2, ви програли. Натисніть "Роздати", щоб зіграти ще раз.');
-            gameActiveP2 = false;
-            dealButtonP2.style.display = 'inline-block';
-            hitButtonP2.style.display = 'none';
-            standButtonP2.style.display = 'none';
-            loseSound.play();
+    function first_stand() {
+        if (!gameActive) return;
+        check_stop_first_player = true;
+        stop_func();
+        if (check_stop_second_player == false) {
+            updateStatus('Гравець 1 зупинився! Гравець 2 Оберіть "Взяти" або "Зупинитися"');
         }
     }
 
-    function standPlayer2() {
-        if (!gameActiveP2) return;
+    function second_hit() {
+        if (check_stop_second_player == true) {
+            return
+        }
+        else{
+            if (!gameActive) return;
+            dealCard(second_playerHand);
+            if (second_playerHandValue > 21) {
+                updateStatus('Перебор! Гравець 2, ви програли. Натисніть "Роздати", щоб зіграти ще раз.');
+                gameActive_second_player = false;
+                // dealButton.style.display = 'inline-block';
+                // hitButton_2.style.display = 'none';
+                // stand_dealer.style.display = 'none';
+            }
+        }
+    }
+
+
+    function second_stand() {
+        if (!gameActive) return;
+        check_stop_second_player = true;
+        stop_func();
+        if (check_stop_first_player == false) {
+            updateStatus('Гравець 1 зупинився! Гравець 2 Оберіть "Взяти" або "Зупинитися"');
+        }
+    }
+
+
+    function dealer_stand() {
+        if (!gameActive_second_player) return;
         while (dealerHandValue < 19) {
             dealCard(dealerHand);
         }
-        if (dealerHandValue > 21 || dealerHandValue < player2HandValue && player2HandValue <= 21) {
+        if (dealerHandValue > 21 || dealerHandValue < second_playerHandValue && second_playerHandValue <= 21) {
             updateStatus('Гравець 2 переміг! Натисніть "Роздати", щоб зіграти ще раз.');
             bank += 2 * parseInt(betInput.value);
-            winSound.play();
-        } else if (dealerHandValue === player2HandValue) {
+            win_sound.play();
+        } else if (dealerHandValue === second_playerHandValue) {
             updateStatus('Нічия! Натисніть "Роздати", щоб зіграти ще раз.');
             bank += parseInt(betInput.value);
             tieSound.play();
         } else {
             updateStatus('Дилер переміг. Натисніть "Роздати", щоб зіграти ще раз.');
-            loseSound.play();
         }
-        updateBank();
-        gameActiveP2 = false;
-        dealButtonP2.style.display = 'inline-block';
-        hitButtonP2.style.display = 'none';
-        standButtonP2.style.display = 'none';
     }
 
     function updateBank() {
-        document.getElementById('bank-value').textContent = bank;
+        document.getElementById('first_player-bank-value').textContent = first_playerbank;
+        document.getElementById('second_player-bank-value').textContent = second_playerbank;
     }
 
     function updateStatus(message) {
         status.textContent = message;
     }
-})
+});

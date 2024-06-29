@@ -8,46 +8,48 @@
 </head>
 <body>
   <li><a href="chose_bleck_jeck_game.html" title="main">Сторінка вибору</a></li>
-  <audio id="background-music" loop>
-	  <source src="background_music.mp3" type="audio/mpeg">
-	</audio>
 
-	<audio id="win-sound">
-	  <source src="win_sound.mp3" type="audio/mpeg">
-	</audio>
 
-	<audio id="lose-sound">
-	  <source src="lose_sound.mp3" type="audio/mpeg">
-	  
-	</audio>
 
-	<audio id="tie-sound">
-	  <source src="tie_sound.mp3" type="audio/mpeg">
-	</audio>
-	
-	<audio id="card-Deal-Sound">
-	  <source src="card_Deal_Sound.mp3" type="audio/mpeg">
-	</audio>
+  <audio id="win-sound">
+        <source src="dollar-sound-effect.mp3" type="audio/mpeg">
+    </audio>
+      
+      <audio id="card-Deal-Sound">
+        <source src="card_Deal_Sound.mp3" type="audio/mpeg">
+    </audio>
+
+
 
 <div id="game">
-    <h1>Гра в Блекджек</h1>
-    <div id="status">Ласкаво просимо! Гравець 1, введіть вашу ставку та натисніть "Роздати".</div>
+    <div id="status">Блекджек 1 v 1 v dealer.  Введіть вашу ставку та натисніть "Роздати".</div>
+
     <div id="buttons">
+
         <input type="number" id="bet" placeholder="Ваша ставка">
-        <button id="deal-button-p1">Роздати (Гравець 1)</button>
-        <button id="hit-button-p1" style="display: none;">Взяти (Гравець 1)</button>
-        <button id="stand-button-p1" style="display: none;">Зупинитися (Гравець 1)</button>
-        <button id="deal-button-p2">Роздати (Гравець 2)</button>
-        <button id="hit-button-p2" style="display: none;">Взяти (Гравець 2)</button>
-        <button id="stand-button-p2" style="display: none;">Зупинитися (Гравець 2)</button>
+
+        <div class="all_time_dep">Банк стола:</div>
+        <div id="time_dep"></div>
+
+        <button id="deal-button">Роздати</button>
+        
+        <button id="first_player-hit_button">Взяти 1</button>
+        <button id="second_player-hit_button">Взяти 2</button>
+
+        <button id="first_player-stand_button">Зупинитися 1</button>
+        <button id="second_player-stand_button">Зупинитися 2</button>
     </div>
-    <div id="player1-hand" class="hand"></div>
-    <div id="player2-hand" class="hand"></div>
-    <div id="dealer-hand" class="hand"></div>
-    <div id="player1-points">Очки Гравця 1: <span id="player1-points-value">0</span></div>
-    <div id="player2-points">Очки Гравця 2: <span id="player2-points-value">0</span></div>
+
+    <div id="first_player-hand" class="first_player-hand"></div>
+    <div id="second_player-hand" class="second_player-hand"></div>
+    <div id="dealer_hand" class="dealer_hand"></div>
+
+    <div id="first_player-points">Очки Гравця 1: <span id="first_player-points-value">0</span></div>
+    <div id="second_player-points">Очки Гравця 2: <span id="second_player-points-value">0</span></div>
     <div id="dealer-points">Очки Дилера: <span id="dealer-points-value">0</span></div>
-    <div id="bank">Банк: <span id="bank-value">100</span></div>
+
+    <div id="first_player-bank">Банк Гравця 1: <span id="first_player-bank-value">100</span></div>
+    <div id="second_player-bank">Банк Гравця 2: <span id="second_player-bank-value">100</span></div>
 </div>
 
     <script src="Black_jeck_2players_bot.js"></script>

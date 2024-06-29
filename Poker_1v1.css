@@ -1,0 +1,382 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('Poker_table_3_edit.jpeg');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    height: 10px;
+}
+
+#status{
+    position: absolute;
+    font-weight: bolder;
+    font-size: 20px;
+    left: 40%;
+    top: 28%; 
+}
+
+
+.block_first_plaler{
+    background-color: black;
+    border: 1px solid rgb(180, 180, 180);
+    width: 140px;
+    height: 80px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+}
+
+ /*  */
+
+.block_second_plaler{
+    background-color: black;
+    border: 1px solid rgb(180, 180, 180);
+    width: 140px;
+    height: 80px;
+    position: absolute;
+    top: 70%;
+    left: 15%;
+}
+
+/*  */
+
+.block_third_plaler{
+    background-color: black;
+    border: 1px solid rgb(180, 180, 180);
+    width: 140px;
+    height: 80px;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+
+/*  */
+
+.block_fourth_plaler{
+    background-color: black;
+    border: 1px solid rgb(180, 180, 180);
+    width: 140px;
+    height: 80px;
+    position: absolute;
+    top: 10%;
+    left: 65%;
+}
+
+/*  */
+
+.block_fifth_plaler{
+    background-color: black;
+    border: 1px solid rgb(180, 180, 180);
+    width: 140px;
+    height: 80px;
+    position: absolute;
+    top: 55%;
+    left: 85%;
+}
+
+/*  */
+
+
+
+#player-bank{
+    position: relative;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+#player-bank{
+    color: white;
+}
+
+
+#color{
+    color: rgb(70, 195, 35);
+}
+
+#player-bank hr{
+    width: 50%;
+    margin: 5px 0 5px 23%;
+}
+
+
+.all_time_dep{
+    font-weight: bolder;
+    font-size: 20px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+}
+
+#bank{
+    font-weight: bolder;
+    font-size: 20px;
+    position: absolute;
+    left: 53.5%;
+    top: 35.1%;
+}
+
+
+.buttons_color_f_c_b button{
+    background: linear-gradient(red, 80%, rgb(112, 65, 65));
+    /* color: red; */
+    font-weight: bolder;
+    font-size: 20px;
+    width: 70px;
+    height: 50px;
+    border: groove 4px red;
+    border-radius: 1em;
+
+}
+
+/* first */
+
+#first_player-fold_button{
+    position: absolute;
+    left: 43%;
+    top: 91%;
+}
+
+#first_player-check_button{
+    position: absolute;
+    left: 47%;
+    top: 91%;
+}
+
+#first_player-bet_button{
+    position: absolute;
+    left: 51%;
+    top: 91%;
+}
+
+/* second */
+
+#second_player-fold_button{
+    position: absolute;
+    left: 8%;
+    top: 81%;
+}
+
+#second_player-check_button{
+    position: absolute;
+    left: 12%;
+    top: 81%;
+}
+
+#second_player-bet_button{
+    position: absolute;
+    left: 16%;
+    top: 81%;
+}
+
+
+
+.container {
+    position: absolute;
+    width: 11%;
+    background-color: #5454548d;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    left: 62%;
+    top: 90%;
+}
+
+.container_2 {
+    position: absolute;
+    width: 11%;
+    background-color: #5454548d;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    left: 27%;
+    top: 80%;
+}
+
+
+
+
+input[type="range"] {
+    width: 98%;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+#bet_minimum{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 87%;
+    left: 62%;
+    cursor: pointer;
+}
+
+#bet_minimum_2{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 77%;
+    left: 27%;
+    cursor: pointer;
+}
+
+
+#bet_half{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 87%;
+    left: 64.7%;
+    cursor: pointer;
+}
+
+#bet_half_2{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 77%;
+    left: 29.7%;
+    cursor: pointer;
+}
+
+
+#bet_bank{
+    width: 55px;
+    height: 30px;
+    position: absolute;
+    top: 87%;
+    left: 67.4%;
+    cursor: pointer;
+}
+
+#bet_bank_2{
+    width: 55px;
+    height: 30px;
+    position: absolute;
+    top: 77%;
+    left: 32.4%;
+    cursor: pointer;
+}
+
+
+#bet_max{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 87%;
+    left: 70.3%;
+    cursor: pointer;
+}
+
+#bet_max_2{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 77%;
+    left: 35.3%;
+    cursor: pointer;
+}
+
+
+.bet_block{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 56%;
+    top: 91%;
+    border: 2px solid red;
+}
+
+.bet_block_2{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 21%;
+    top: 81%;
+    border: 2px solid red;
+}
+
+
+#betAmount{
+    font-weight: bolder;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    top: 20%;
+}
+
+#betAmount_2{
+    font-weight: bolder;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    top: 20%;
+}
+
+.first_player-hand{
+    position: absolute;
+    top: 77.8%;
+    left: 41%;
+    max-width: 600px;
+}
+
+.first_player-hand img, .second_player-hand img{
+    height: 100px;
+    margin-left: 5px; 
+}
+
+
+.second_player-hand{
+    position: absolute;
+    top: 67.8%;
+    left: 6%;
+    max-width: 600px;
+}
+
+
+.dealer_flop_cards{
+    position: absolute;
+    top: 44%;
+    left: 35.5%;
+    max-width: 600px;
+}
+
+.dealer_flop_cards img{
+    height: 125px;
+    margin-left: 23px; 
+}
+
+
+.dealer_tern_cards{
+    position: absolute;
+    top: 44%;
+    left: 53%;
+    max-width: 600px;
+}
+
+.dealer_tern_cards img{
+    height: 125px;
+    margin-left: 23px; 
+}
+
+
+.dealer_river_cards{
+    position: absolute;
+    top: 44%;
+    left: 58%;
+    max-width: 600px;
+}
+
+.dealer_river_cards img{
+    height: 125px;
+    margin-left: 23px; 
+}
