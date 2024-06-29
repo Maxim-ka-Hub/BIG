@@ -12,6 +12,18 @@ body {
     height: 10px;
 }
 
+ul{
+    list-style-type: none;
+}
+
+#li_main{
+    position: absolute;
+    left: 20px;
+    text-decoration: none;
+    color: red;
+    
+}
+
 #status{
     position: absolute;
     font-weight: bolder;
@@ -132,6 +144,7 @@ body {
     height: 50px;
     border: groove 4px red;
     border-radius: 1em;
+    cursor: pointer;
 
 }
 
@@ -379,4 +392,9 @@ p {
 .dealer_river_cards img{
     height: 125px;
     margin-left: 23px; 
+}
+
+
+#deal-button{
+    cursor: pointer;
 }
