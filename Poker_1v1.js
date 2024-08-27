@@ -409,14 +409,30 @@ document.addEventListener('DOMContentLoaded', function () {
         return maxCard;
     }
 
-    function isSequential(cards) {
+	function isSequential(cards) {
         let values = cards.map(getCardValue).sort((a, b) => a - b);
-        for (let i = 0; i < values.length - 1; i++) {
-            if (values[i] + 1 !== values[i + 1]) {
-                return false;
+        
+        // Видаляємо дублікатні значення, щоб уникнути проблем при перевірці стріту
+        values = [...new Set(values)];
+        
+        // Перевіряємо на послідовність
+        for (let i = 0; i < values.length - 4; i++) {
+            if (
+                values[i] + 1 === values[i + 1] &&
+                values[i] + 2 === values[i + 2] &&
+                values[i] + 3 === values[i + 3] &&
+                values[i] + 4 === values[i + 4]
+            ) {
+                return true;
             }
         }
-        return true;
+        
+        // Додатково перевіряємо на випадок стріту від A до 5
+        if (values.includes(14) && values.slice(0, 4).toString() === '2,3,4,5') {
+            return true;
+        }
+        
+        return false;
     }
     
     var pairs = [];
@@ -443,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     
         for (let suit in counts_first_player) {
-            if (counts_first_player[suit] === 5) {
+            if (counts_first_player[suit] >= 5) {
                 if (isSequential(first_cards_list_value.filter((_, i) => first_cards_list_suit[i] === suit))) {
                     if (values.includes(10) && values.includes(11) && values.includes(12) && values.includes(13) && values.includes(14)) {
                         document.getElementById('status_first_player').innerHTML = `Роял-флеш ${suit}`;
@@ -457,9 +473,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-    
+        
         if (isSequential(first_cards_list_value) && flop_game_active == true) {
             document.getElementById('status_first_player').innerHTML = `Стріт`;
+            
             return;
         }
     
@@ -486,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (pairs.length >= 2) {
                     pairs.sort((a, b) => index_cards.indexOf(b) - index_cards.indexOf(a));
-                    document.getElementById('status_first_player').innerHTML = `Пара ${pairs[0]} та пара ${pairs[1]}`;
+                    document.getElementById('status_first_player').innerHTML = `Пара та пара  ${pairs[0]} ${pairs[1]}`;
                     return;
                 }
 
@@ -526,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     
         for (let suit_2 in counts_second_player) {
-            if (counts_second_player[suit_2] === 5) {
+            if (counts_second_player[suit_2] >= 5) {
                 if (isSequential(second_cards_list_value.filter((_, i) => second_cards_list_suit[i] === suit_2))) {
                     if (values_2.includes(10) && values_2.includes(11) && values_2.includes(12) && values_2.includes(13) && values_2.includes(14)) {
                         document.getElementById('status_second_player').innerHTML = `Роял-флеш ${suit_2}`;
@@ -540,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-    
+        
         if (isSequential(second_cards_list_value) && flop_game_active == true) {
             document.getElementById('status_second_player').innerHTML = `Стріт`;
             return;
@@ -569,7 +586,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (pairs_2.length >= 2) {
                     pairs_2.sort((a, b) => index_cards.indexOf(b) - index_cards.indexOf(a));
-                    document.getElementById('status_second_player').innerHTML = `Пара ${pairs_2[0]} та пара ${pairs_2[1]}`;
+                    document.getElementById('status_second_player').innerHTML = `Пара та пара ${pairs_2[0]} ${pairs_2[1]}`;
                     return;
                 }
 
@@ -614,115 +631,278 @@ document.addEventListener('DOMContentLoaded', function () {
             check_second_player_bet = false;
         }
     }
-    // function determineWinner() {
-    //     const firstPlayerStatus = document.getElementById('status_first_player').innerHTML;
-    //     const secondPlayerStatus = document.getElementById('status_second_player').innerHTML;
-
-    //     const handRanks = {
-    //         'Роял-флеш': 10,
-    //         'Флеш-стріт': 9,
-    //         'Каре': 8,
-    //         'Фулл хаус': 7,
-    //         'Флеш': 6,
-    //         'Стріт': 5,
-    //         'Трійка': 4,
-    //         'Пара': 3,
-    //         'Старша карта': 1
-    //     };
-
-    //     let firstPlayerRank = 0;
-    //     let secondPlayerRank = 0;
-
-    //     // 
-    //     for (let rank in handRanks) {
-    //         if (firstPlayerStatus.includes(rank)) {
-    //             firstPlayerRank = handRanks[rank];
-    //         }
-    //         if (secondPlayerStatus.includes(rank)) {
-    //             secondPlayerRank = handRanks[rank];
-    //         }
-    //     }
-
-    //     //
-    //     if (firstPlayerRank > secondPlayerRank) {
-    //         alert('Перемога першого гравця');
-    //     } else if (secondPlayerRank > firstPlayerRank) {
-    //         alert('Перемога другого гравця');
-    //     } else {
-    //         if (getCardValue(pairs[0]) > getCardValue(pairs_2[0])) {
-    //             alert('Перемога першого гравця');
-    //             alert('hi')
-    //         }
-    //         else if (getCardValue(pairs_2[0]) > getCardValue(pairs[0])) {
-    //             alert('Перемога другого гравця');
-    //             alert('hi')
-    //         }
-    //         else{
-    //             alert('Нічия');
-    //         } 
-    //     }
-    // }
 
 
-    function getCardValue1(card) {
-        const values = {
-            '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10,
-            'J': 11, 'Q': 12, 'K': 13, 'A': 14
-        };
-        return values[card];
-    }
-    
+
     function determineWinner() {
-        const firstPlayerStatus = document.getElementById('status_first_player').innerHTML;
-        const secondPlayerStatus = document.getElementById('status_second_player').innerHTML;
-    
-        const handRanks = {
-            'Роял-флеш': 10,
-            'Флеш-стріт': 9,
-            'Каре': 8,
-            'Фулл хаус': 7,
-            'Флеш': 6,
-            'Стріт': 5,
-            'Трійка': 4,
-            'Пара': 3,
-            'Старша карта': 1
-        };
-    
-        let firstPlayerRank = 0;
-        let secondPlayerRank = 0;
-        
-        for (let rank in handRanks) {
-            if (firstPlayerStatus.includes(rank)) {
-                firstPlayerRank = handRanks[rank];
+		const firstPlayerHand = document.getElementById('status_first_player').innerText;
+		const secondPlayerHand = document.getElementById('status_second_player').innerText;
+
+		const handRanks = {
+			'Роял-флеш': 10,
+			'Флеш-стріт': 9,
+			'Каре': 8,
+			'Фулл хаус': 7,
+			'Флеш': 6,
+			'Стріт': 5,
+			'Трійка': 4,
+			'Пара та пара': 3,
+			'Пара': 2,
+			'Старша карта': 1
+		};
+
+		function getHandRank(hand) {
+			for (let key in handRanks) {
+				if (hand.includes(key)) {
+					return handRanks[key];
+				}
+			}
+			return 0;
+		}
+
+		function getCardValue(card) {
+			const cardValues = {
+				'2': 2,
+				'3': 3,
+				'4': 4,
+				'5': 5,
+				'6': 6,
+				'7': 7,
+				'8': 8,
+				'9': 9,
+				'10': 10,
+				'J': 11,
+				'Q': 12,
+				'K': 13,
+				'A': 14
+			};
+			return cardValues[card] || 0;
+		}
+
+		function getPairs(hand) {
+			const cardValues = hand.split(' ').filter(value => !isNaN(getCardValue(value)) || value === 'J' || value === 'Q' || value === 'K' || value === 'A');
+			let counts = {};
+			let pairs = [];
+
+			cardValues.forEach(card => {
+				counts[card] = (counts[card] || 0) + 1;
+			});
+
+			for (let card in counts) {
+				if (counts[card] === 2) {
+					pairs.push(card);
+				}
+			}
+
+			// Сортуємо пари від старшої до молодшої
+			pairs.sort((a, b) => getCardValue(b) - getCardValue(a));
+			return pairs;
+		}
+
+		function getKicker(hand, pairs) {
+			const cardValues = hand.split(' ').filter(value => !isNaN(getCardValue(value)) || value === 'J' || value === 'Q' || value === 'K' || value === 'A');
+			const remainingCards = cardValues.filter(card => !pairs.includes(card));
+			return Math.max(...remainingCards.map(card => getCardValue(card)));
+		}
+
+		const firstPlayerRank = getHandRank(firstPlayerHand);
+		const secondPlayerRank = getHandRank(secondPlayerHand);
+
+		if (firstPlayerRank > secondPlayerRank) {
+			alert("Перемога першого гравця!");
+		} else if (secondPlayerRank > firstPlayerRank) {
+			alert("Перемога другого гравця!");
+		} else {
+			// Додаткова перевірка для двох пар 
+			if (firstPlayerRank === 3 && secondPlayerRank === 3) {
+				const firstPlayerPairs = getPairs(firstPlayerHand);
+				const secondPlayerPairs = getPairs(secondPlayerHand);
+
+				// Порівнюємо старші пари
+				if (getCardValue(firstPlayerPairs[0]) > getCardValue(secondPlayerPairs[0])) {
+					alert("Перемога першого гравця завдяки старшій парі!");
+				} else if (getCardValue(secondPlayerPairs[0]) > getCardValue(firstPlayerPairs[0])) {
+					alert("Перемога другого гравця завдяки старшій парі!");
+				} else {
+					// Якщо старші пари однакові, порівнюємо менші пари
+					if (getCardValue(firstPlayerPairs[1]) > getCardValue(secondPlayerPairs[1])) {
+						alert("Перемога першого гравця завдяки меншій парі!");
+					} else if (getCardValue(secondPlayerPairs[1]) > getCardValue(firstPlayerPairs[1])) {
+						alert("Перемога другого гравця завдяки меншій парі!");
+					} else {
+						// Якщо меншій пари також однакові, порівнюємо кікери
+						const firstPlayerKicker = getKicker(firstPlayerHand, firstPlayerPairs);
+						const secondPlayerKicker = getKicker(secondPlayerHand, secondPlayerPairs);
+
+						if (firstPlayerKicker > secondPlayerKicker) {
+							alert("Перемога першого гравця завдяки кікеру!");
+						} else if (secondPlayerKicker > firstPlayerKicker) {
+							alert("Перемога другого гравця завдяки кікеру!");
+						} else {
+							alert("Нічия!");
+						}
+					}
+				}
+			} else if (firstPlayerRank === 2 && secondPlayerRank === 2) {
+					const firstPlayerPairs = getPairs(firstPlayerHand);
+					const secondPlayerPairs = getPairs(secondPlayerHand);
+
+					// Порівнюємо старші пари
+					if (getCardValue(firstPlayerPairs[0]) > getCardValue(secondPlayerPairs[0])) {
+						alert("Перемога першого гравця завдяки старшій парі!");
+					} else if (getCardValue(secondPlayerPairs[0]) > getCardValue(firstPlayerPairs[0])) {
+						alert("Перемога другого гравця завдяки старшій парі!");
+					} else {
+						// Якщо пари однакові, порівнюємо кікери
+						const firstPlayerKickers = firstPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+						const secondPlayerKickers = secondPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+
+						// Видаляємо значення пари для кожного гравця
+						firstPlayerKickers.splice(firstPlayerKickers.indexOf(getCardValue(firstPlayerPairs[0])), 2);
+						secondPlayerKickers.splice(secondPlayerKickers.indexOf(getCardValue(secondPlayerPairs[0])), 2);
+
+						// Порівнюємо кікери
+						for (let i = 0; i < Math.min(firstPlayerKickers.length, secondPlayerKickers.length); i++) {
+							if (firstPlayerKickers[i] > secondPlayerKickers[i]) {
+								alert("Перемога першого гравця завдяки старшому кікеру!");
+								return;
+							} else if (secondPlayerKickers[i] > firstPlayerKickers[i]) {
+								alert("Перемога другого гравця завдяки старшому кікеру!");
+								return;
+							}
+						}
+
+						alert("Нічия за парою!");
+					}
+			} else if (firstPlayerRank === 1 && secondPlayerRank === 1) {
+				const firstPlayerCards = firstPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+				const secondPlayerCards = secondPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+
+				for (let i = 0; i < firstPlayerCards.length; i++) {
+					if (firstPlayerCards[i] > secondPlayerCards[i]) {
+						alert("Перемога першого гравця завдяки старшій карті!");
+						return;
+					} else if (secondPlayerCards[i] > firstPlayerCards[i]) {
+						alert("Перемога другого гравця завдяки старшій карті!");
+						return;
+					}
+				}
+
+				alert("Нічия за старшими картами!");
+			} else if (firstPlayerRank === 4 && secondPlayerRank === 4) {
+				const firstPlayerTriples = getPairs(firstPlayerHand).filter(card => firstPlayerHand.split(' ').filter(c => c === card).length === 3);
+				const secondPlayerTriples = getPairs(secondPlayerHand).filter(card => secondPlayerHand.split(' ').filter(c => c === card).length === 3);
+
+				if (getCardValue(firstPlayerTriples[0]) > getCardValue(secondPlayerTriples[0])) {
+					alert("Перемога першого гравця завдяки трійці!");
+				} else if (getCardValue(secondPlayerTriples[0]) > getCardValue(firstPlayerTriples[0])) {
+					alert("Перемога другого гравця завдяки трійці!");
+				} else {
+					const firstPlayerKicker = getKicker(firstPlayerHand, firstPlayerTriples);
+					const secondPlayerKicker = getKicker(secondPlayerHand, secondPlayerTriples);
+
+					if (firstPlayerKicker > secondPlayerKicker) {
+						alert("Перемога першого гравця завдяки кікеру після трійки!");
+					} else if (secondPlayerKicker > firstPlayerKicker) {
+						alert("Перемога другого гравця завдяки кікеру після трійки!");
+					} else {
+						alert("Нічия за трійками!");
+					}
+				}
+			} else if (firstPlayerRank === 5 && secondPlayerRank === 5) {
+				const firstPlayerCards = firstPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+				const secondPlayerCards = secondPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+
+				// Порівнюємо старші карти в стріті (найвищу карту)
+				if (firstPlayerCards[0] > secondPlayerCards[0]) {
+					alert("Перемога першого гравця завдяки старшій карті в стріті!");
+				} else if (secondPlayerCards[0] > firstPlayerCards[0]) {
+					alert("Перемога другого гравця завдяки старшій карті в стріті!");
+				} else {
+					alert("Нічия за стрітом!");
+				}
+			} else if (firstPlayerRank === 6 && secondPlayerRank === 6) {
+				const firstPlayerCards = firstPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+				const secondPlayerCards = secondPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+
+				// Порівнюємо кожну карту у флеші, починаючи зі старшої
+				for (let i = 0; i < firstPlayerCards.length; i++) {
+					if (firstPlayerCards[i] > secondPlayerCards[i]) {
+						alert("Перемога першого гравця завдяки старшій карті у флеші!");
+						return;
+					} else if (secondPlayerCards[i] > firstPlayerCards[i]) {
+						alert("Перемога другого гравця завдяки старшій карті у флеші!");
+						return;
+					}
+				}
+
+				alert("Нічия за флешем!");
+			}else if (firstPlayerRank === 7 && secondPlayerRank === 7) {
+				const firstPlayerTriples = getPairs(firstPlayerHand).filter(card => firstPlayerHand.split(' ').filter(c => c === card).length === 3);
+				const secondPlayerTriples = getPairs(secondPlayerHand).filter(card => secondPlayerHand.split(' ').filter(c => c === card).length === 3);
+
+				// Порівнюємо трійки у фулл хаусі
+				if (getCardValue(firstPlayerTriples[0]) > getCardValue(secondPlayerTriples[0])) {
+					alert("Перемога першого гравця завдяки старшій трійці у фулл хаусі!");
+				} else if (getCardValue(secondPlayerTriples[0]) > getCardValue(firstPlayerTriples[0])) {
+					alert("Перемога другого гравця завдяки старшій трійці у фулл хаусі!");
+				} else {
+					const firstPlayerPairs = getPairs(firstPlayerHand).filter(card => firstPlayerHand.split(' ').filter(c => c === card).length === 2);
+					const secondPlayerPairs = getPairs(secondPlayerHand).filter(card => secondPlayerHand.split(' ').filter(c => c === card).length === 2);
+
+					// Порівнюємо пари у фулл хаусі, якщо трійки однакові
+					if (getCardValue(firstPlayerPairs[0]) > getCardValue(secondPlayerPairs[0])) {
+						alert("Перемога першого гравця завдяки старшій парі у фулл хаусі!");
+					} else if (getCardValue(secondPlayerPairs[0]) > getCardValue(firstPlayerPairs[0])) {
+						alert("Перемога другого гравця завдяки старшій парі у фулл хаусі!");
+					} else {
+						alert("Нічия за фулл хаусом!");
+					}
+				}
+			} else if (firstPlayerRank === 8 && secondPlayerRank === 8) {
+				const firstPlayerQuads = getPairs(firstPlayerHand).filter(card => firstPlayerHand.split(' ').filter(c => c === card).length === 4);
+				const secondPlayerQuads = getPairs(secondPlayerHand).filter(card => secondPlayerHand.split(' ').filter(c => c === card).length === 4);
+
+				// Порівнюємо каре
+				if (getCardValue(firstPlayerQuads[0]) > getCardValue(secondPlayerQuads[0])) {
+					alert("Перемога першого гравця завдяки старшому каре!");
+				} else if (getCardValue(secondPlayerQuads[0]) > getCardValue(firstPlayerQuads[0])) {
+					alert("Перемога другого гравця завдяки старшому каре!");
+				} else {
+					// Якщо каре однакове, порівнюємо кікери (залишкові карти)
+					const firstPlayerKicker = getKicker(firstPlayerHand, firstPlayerQuads);
+					const secondPlayerKicker = getKicker(secondPlayerHand, secondPlayerQuads);
+
+					if (firstPlayerKicker > secondPlayerKicker) {
+						alert("Перемога першого гравця завдяки кікеру після каре!");
+					} else if (secondPlayerKicker > firstPlayerKicker) {
+						alert("Перемога другого гравця завдяки кікеру після каре!");
+					} else {
+						alert("Нічия за каре!");
+					}
+				}
+			} else if (firstPlayerRank === 9 && secondPlayerRank === 9) {
+				const firstPlayerCards = firstPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+				const secondPlayerCards = secondPlayerHand.split(' ').map(card => getCardValue(card)).sort((a, b) => b - a);
+
+				// Порівнюємо старші карти у флеш-стріті
+				if (firstPlayerCards[0] > secondPlayerCards[0]) {
+					alert("Перемога першого гравця завдяки старшій карті у флеш-стріті!");
+				} else if (secondPlayerCards[0] > firstPlayerCards[0]) {
+					alert("Перемога другого гравця завдяки старшій карті у флеш-стріті!");
+				} else {
+					alert("Нічия за флеш-стрітом!");
+				}
+            } else if (firstPlayerRank === 10 && secondPlayerRank === 10) {
+				alert("Обидва гравці мають Роял-флеш. Нічия!");
+			}
+
+
+		else {
+            alert("Нічия0!");
             }
-            if (secondPlayerStatus.includes(rank)) {
-                secondPlayerRank = handRanks[rank];
-            }
-        }
-    
-        // Визначаємо переможця
-        if (firstPlayerRank > secondPlayerRank) {
-            alert('Переможець: Перший гравець');
-        } else if (firstPlayerRank < secondPlayerRank) {
-            alert('Переможець: Другий гравець');
-        } else {
-            // Якщо комбінації однакові, порівнюємо карти
-            if (firstPlayerRank === 3) { // Пара
-                const firstPlayerPairValue = getCardValue1(firstPlayerStatus.match(/2|3|4|5|6|7|8|9|10|J|Q|K|A/)[0]);
-                const secondPlayerPairValue = getCardValue1(secondPlayerStatus.match(/2|3|4|5|6|7|8|9|10|J|Q|K|A/)[0]);
-    
-                if (firstPlayerPairValue > secondPlayerPairValue) {
-                    alert('Переможець: Перший гравець');
-                } else if (firstPlayerPairValue < secondPlayerPairValue) {
-                    alert('Переможець: Другий гравець');
-                } else {
-                    alert('Нічия!');
-                }
-            } else {
-                alert('Нічия!');
-            }
-        }
-    }
-    
-    
+		}
+	}
+
+
 });
